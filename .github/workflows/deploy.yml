@@ -8,20 +8,19 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    steps:
 
+    steps:
     - name: Checkout code
       uses: actions/checkout@v3
-    
+
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '20'  # Using Node.js version 20
-	cache: 'yarn' # Optionally cache yarn modules
+        cache: 'yarn'       # Enable Yarn cache
 
     - name: Install dependencies
-      run: yarn install # Using Yarn to install dependencies
-
+      run: yarn install  # Using Yarn to install dependencies
 
     - name: Build project
       run: yarn build  # Building the project using Yarn
@@ -34,5 +33,5 @@ jobs:
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: 'us-east-1'  # your AWS region
+        AWS_REGION: ${{ secrets.AWS_REGION }}
         SOURCE_DIR: 'dist'  # Directory that contains your build output
