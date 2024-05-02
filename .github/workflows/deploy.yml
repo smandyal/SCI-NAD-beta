@@ -1,27 +1,29 @@
-name: Deploy Website
+name: Deploy Website to AWS S3
 
 on:
   push:
     branches:
-      - main  # or your default branch
+      - main  # Triggers the workflow on pushes to the main branch
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+
+    - name: Checkout code
+      uses: actions/checkout@v2
     
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20'  # specify your Node.js version
+        node-version: '20'  # Using Node.js version 20
 
     - name: Install dependencies
-      run: npm install -g astro@latest --force
+      run: yarn install # Using Yarn to install dependencies
 
 
     - name: Build project
-      run: npx astro@latest build  # or your build command
+      run: yarn build  # Building the project using Yarn
 
     - name: Deploy to Amazon S3
       uses: jakejarvis/s3-sync-action@master
@@ -32,4 +34,4 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'us-east-1'  # your AWS region
-        SOURCE_DIR: 'dist'  # your build directory
+        SOURCE_DIR: 'dist'  # Directory that contains your build output
