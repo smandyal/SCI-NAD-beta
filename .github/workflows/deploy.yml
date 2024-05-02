@@ -17,7 +17,7 @@ jobs:
         node-version: '20'  # specify your Node.js version
 
     - name: Install dependencies
-      run: npm install
+      run: npm install -g npm@latest --force
 
     - name: Build project
       run: npm run build  # or your build command
