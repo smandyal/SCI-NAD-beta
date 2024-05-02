@@ -1,0 +1,43 @@
+---
+import { TextSection } from '@components/odyssey-theme';
+import Layout from '../../layouts/Page.astro';
+import HeroSection from '../../components/sections/heros/HeroSection.astro';
+
+const seo = {
+	title: 'About SCI-NAD',
+	description: 'Learn more about SCI-NAD and our mission to revolutionize neuroscience research.',
+};
+---
+
+<Layout {seo}>
+	<HeroSection>
+		<div slot="text-container">
+			<h1>About SCI-NAD</h1>
+			<p>
+				At SCI-NAD, we're dedicated to advancing the frontiers of neuroscience through cutting-edge technology and research. Our platform integrates sophisticated neural mapping with deep scholarly resources to propel neuroscientific discovery and innovation.
+			</p>
+		</div>
+    <picture slot="image-container">
+      <img
+        src="/assets/images/about/neuro-imaging.jpg"
+        alt="Advanced Neuroscientific Visualization"
+        id="about-hero-image"
+      />
+    </picture>
+	</HeroSection>
+  <TextSection narrow>
+    <p>
+      SCI-NAD leverages immersive 3D visualizations to provide researchers and clinicians unprecedented insights into the human brain. Our collaborative environment facilitates a deeper understanding of neural mechanisms, aiming to foster breakthroughs in both academic and clinical applications.
+    </p>
+    <p>
+      Our platform is not just a tool but a gateway to a comprehensive repository of high-impact research. From real-time data analysis to collaborative project management, SCI-NAD is designed to support and enhance the work of neuroscientists around the globe.
+    </p>
+    
+    <p>
+      The integration of tools like Zotero for citation management and embedded cloud-based computational notebooks ensures that our users can trace the lineage of research ideas and build on the collective knowledge of the neuroscience community.
+    </p>
+    <p>
+      At SCI-NAD, we are committed to making neuroscientific research more accessible and impactful. Join us as we explore new dimensions in neuroscience, pushing the boundaries of what is possible.
+    </p>
+  </TextSection>
+</Layout>

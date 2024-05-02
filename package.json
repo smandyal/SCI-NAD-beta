@@ -1,26 +1,29 @@
 {
-  "name": "sci-nad",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.2"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.2"
-  }
+	"name": "odyssey-theme",
+	"version": "2.0.2",
+	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:treefarmstudio/odyssey-theme"
+	},
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"format": "npx prettier -w ."
+	},
+	"devDependencies": {
+		"@astrojs/lit": "^4.0.1",
+		"@astrojs/mdx": "^2.1.1",
+		"@astrojs/sitemap": "^0.1.0",
+		"@webcomponents/template-shadowroot": "^0.2.1",
+		"astro": "^4.4.13",
+		"astro-icon": "^1.1.0",
+		"date-fns": "^2.28.0",
+		"lit": "^3.1.2",
+		"prettier-plugin-astro": "^0.0.12",
+    "@iconify-json/ic": "^1.1.17",
+    "@iconify-json/mdi": "^1.1.64"
+	}
 }
