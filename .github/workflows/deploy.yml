@@ -16,15 +16,12 @@ jobs:
       with:
         node-version: '20'  # specify your Node.js version
 
-    - name: Fixing Issues
-      run: npm audit fix --force
-      
     - name: Install dependencies
-      run: npm install --legacy-peer-deps
+      run: npm install -g astro@latest --force
 
 
     - name: Build project
-      run: npm run build  # or your build command
+      run: npx astro@latest build  # or your build command
 
     - name: Deploy to Amazon S3
       uses: jakejarvis/s3-sync-action@master
