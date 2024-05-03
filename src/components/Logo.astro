@@ -1,8 +1,9 @@
 ---
+// Your Astro component script block remains empty as no scripting is needed.
 ---
 
 <div class="logo-container">
-    <img src="/assets/logo_scinad.png" alt="SCI-NAD Logo" class="logo-image"/>
+    <img src="/logo.png" alt="Neuralink?" class="logo-image" loading="lazy"/>
     <p class="logo-text">SCI-NAD</p>
 </div>
 
@@ -16,18 +17,20 @@
     .logo-image {
         width: 50px; /* Adjust size as needed */
         height: auto;
+        margin: 0; /* Removes margin if not needed */
     }
 
     .logo-text {
-        margin: 0;
         font-family: var(--theme-font-family-serif);
         font-size: var(--font-size-md);
         color: inherit;
         text-decoration: none;
+        margin: 0; /* Ensures no margin is affecting layout */
+        cursor: default; /* Sets default cursor */
     }
 
     .logo-text:hover {
         text-decoration: underline;
-        cursor: pointer;
+        cursor: pointer; /* Only change cursor on hover */
     }
 </style>
