@@ -5,20 +5,15 @@ export const footerSocials = [
 	  icon: "mdi:twitter",
 	},
 	{
-	  name: 'Youtube',
-	  url: 'https://youtube.com/c/SCI-NAD',
-	  icon: "mdi:youtube",
+	  name: 'LinkedIn',
+	  url: 'https://linkedin.com/company/scinad',
+	  icon: "mdi:linkedin",
 	},
 	{
 	  name: 'Github',
 	  url: 'https://github.com/SCI-NAD',
 	  icon: "mdi:github",
-	},
-	{
-	  name: 'Discord',
-	  url: 'https://sci-nad.org/discord',
-	  icon: "ic:baseline-discord",
-	},
+	}
   ]
   
   export const footerLists = [
@@ -47,13 +42,17 @@ export const footerSocials = [
 				  slug: '/company/about',
 			  },
 			  {
-				  title: 'Blog',
-				  slug: '/blog',
+				  title: 'Features',
+				  slug: '/',
 			  },
 			  {
-				  title: 'Contact',
-				  slug: '/company/contact',
+				title: 'Courses',
+				slug: '/',
 			  },
+			  {
+				title: 'Community',
+				slug: '/',
+			  }
 		  ],
 	  },
 	  {
