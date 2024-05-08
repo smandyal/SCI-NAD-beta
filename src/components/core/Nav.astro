@@ -5,7 +5,7 @@ const {navData} = Astro.props;
 {navData && <nav>
   <ul>
     {navData.map(navItem => (
-      (<li><a href={navItem.slug} >{navItem.title}</a></li>)
+      <li><a href={navItem.slug}>{navItem.title}</a></li>
     ))}
   </ul>
 </nav> }
@@ -13,26 +13,45 @@ const {navData} = Astro.props;
 <style>
   nav {
     display: flex;
+    position: sticky; /* Ensures the navbar sticks to the top */
+    top: 0; /* Sets the navbar to stay at the top of the page */
+    background-color: #fff; /* Provides a background color for readability */
+    z-index: 1000; /* Keeps the navbar on top of other content */
+    width: 100%; /* Ensures the nav stretches across the full width */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
   }
   nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
+    width: 100%; /* Ensures the list items spread evenly across the navbar */
+    justify-content: center; /* Centers navbar items horizontally */
+  }
+  nav ul li {
+    margin: 0 20px; /* Spacing between nav items */
   }
   nav ul li a {
     text-decoration: none;
-    margin-right: 1rem;
     color: inherit;
     opacity: 0.72;
-    transition: opacity linear 150ms;
+    transition: opacity 0.3s ease-in-out;
   }
   nav ul li a:hover {
-    opacity: 1;
+    opacity: 1; /* Changes the opacity on hover for a visual feedback */
   }
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     nav {
-      display: none;
+      position: fixed; /* Fixes the navbar to the top on smaller screens */
+      top: 0;
+      left: 0;
+    }
+    nav ul {
+      flex-direction: column; /* Stacks the links vertically on smaller screens */
+      align-items: center; /* Centers the links */
+    }
+    nav ul li {
+      margin: 10px 0; /* Adjusts margin for stacked items */
     }
   }
 </style>

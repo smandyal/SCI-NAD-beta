@@ -12,11 +12,11 @@ export const nav = [
 		slug: '/blog',
 	},
 	{
-		title: 'Courses',
-		slug: '/',
+		title: 'Demo',
+		slug: '/demo',
 	},
 	{
 		title: 'Community',
-		slug: '/',
+		slug: '/community',
 	},
 ];

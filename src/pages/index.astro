@@ -1,64 +1,59 @@
 ---
+// Import necessary UI components and layout
 import { Container, FeatureCard } from '@components/odyssey-theme';
 import Layout from '../layouts/Page.astro';
 import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
 ---
 
 <Layout>
-	<HomeHeroSection />
-	<Container>
-		<section class="feature-card__section">
-			<h2>Explore Our Platform</h2>
-			<p>
-				Dive into the core features of the SCI-NAD platform, designed to revolutionize neuroscience research.
-			</p>
-			<div class="feature-card__grid">
-				<FeatureCard href="/platform/visualization" title="Interactive 3D Visualization" imgSrc="/assets/images/home/screenshots/landing-1">
-					Discover interactive 3D visualizations of neural activity and brain mapping technologies.
-				</FeatureCard>
-				<FeatureCard href="/platform/data-analysis" title="Data Analysis Tools" imgSrc="/assets/images/home/screenshots/landing-2">
-					Access advanced tools for data analysis and interpretation, enhancing your research capabilities.
-				</FeatureCard>
-			</div>
-		</section>
-	</Container>
-	
-	<Container>
-		<section class="feature-card__section">
-			<h2>Support and Documentation</h2>
-			<p>Access comprehensive guides and support resources to maximize your use of the SCI-NAD platform.</p>
-			<div class="feature-card__grid">
-				<FeatureCard
-					href="/support/get-started"
-					imgSrc="/assets/images/home/screenshots/get-started"
-					title="Getting Started"
-				>
-					Learn how to get started with SCI-NAD for optimal use of our platform.
-				</FeatureCard>
-				<FeatureCard
-					href="/support/faq"
-					imgSrc="/assets/images/home/screenshots/style-guide"
-					title="FAQs"
-				>
-					Find answers to frequently asked questions about our platform and services.
-				</FeatureCard>
-			</div>
-		</section>
-	</Container>
+    <HomeHeroSection/>
+    <Container>
+        <section class="feature-card__section">
+            <h2>Core Features</h2>
+            <p>
+                Discover the tools that revolutionize neuroscience research and learning.
+            </p>
+            <div class="feature-card__grid">
+                <FeatureCard href="/platform/visualization" title="Hands-on Interaction and Simulations" imgSrc="/assets/images/home/visualize-icon.svg">
+                    Intuitive and interactive brain mapping combined with real-time simulation of neural data.
+                </FeatureCard>
+                <FeatureCard href="/platform/data-analysis" title="Contextual Annotations" imgSrc="/assets/images/home/analyze-icon.svg">
+                    Powerful insights from complex data, enhanced by reductionist breakdown and contextual annotations.
+                </FeatureCard>
+				<FeatureCard href="/platform/data-integration" title="Open Data Integration" imgSrc="/assets/images/home/data-integration-icon.svg">
+                    Seamlessly access and apply open-source neural datasets to your research.
+                </FeatureCard>
+                
+            </div>
+        </section>
+    </Container>
+    
+    
 </Layout>
 
 <style>
-	.feature-card__section {
-		margin: var(--section-margin) auto;
-	}
-	.feature-card__grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: var(--theme-grid-gap);
-	}
-	@media (max-width: 768px) {
-		.feature-card__grid {
-			grid-template-columns: 1fr;
-		}
-	}
+    .feature-card__section, .minimal-support-section {
+        margin: 50px auto;
+        text-align: center;
+    }
+    .feature-card__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+        justify-items: center;
+    }
+    .start-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #0077cc;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    @media (max-width: 768px) {
+        .feature-card__grid {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>

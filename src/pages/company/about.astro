@@ -4,57 +4,51 @@ import Layout from '../../layouts/Page.astro';
 import HeroSection from '../../components/sections/heros/HeroSection.astro';
 
 const seo = {
-	title: 'About SCI-NAD',
-	description: 'Learn more about SCI-NAD’s mission to advance the frontiers of neuroscience through deep-tech innovation.',
+    title: 'About SCI-NAD',
+    description: 'Learn more about SCI-NAD’s mission to advance the frontiers of neuroscience through deep-tech innovation.',
 };
 ---
 
 <Layout {seo}>
-	<HeroSection>
-		<div slot="text-container">
-			<h1>About SCI-NAD</h1>
-			<p>
-				Pushing the boundaries of what's possible in neuroscience.
-			</p>
-		</div>
-		<picture slot="image-container">
-			<img
-				src="/assets/images/about/innovative-neuroscience.jpg"
-				alt="Innovative Neuroscience Tools"
-				id="about-hero-image"
-			/>
-		</picture>
-	</HeroSection>
-	<TextSection narrow>
-		<h2>Mission</h2>
-		<p>
-			At SCI-NAD, we believe in pushing the boundaries of neurotechnology by providing an integrated, cutting-edge environment for researchers, students, and enthusiasts to explore, learn, and innovate.
-		</p>
-		<h2>Vision</h2>
-		<p>
-			To be the leading platform for deep-tech neuroscientific exploration, empowering users with advanced tools and a collaborative community to tackle the most challenging problems in neuroscience.
-		</p>
+    <HeroSection>
+        <div slot="text-container">
+            <h1>About SCI-NAD</h1>
+            <p>
+                Pushing the boundaries of what's possible in neuroscience to unlock new discoveries.
+            </p>
+        </div>
+        
+    </HeroSection>
+    <TextSection narrow>
+        <h2>Our Mission</h2>
+        <p>
+            At SCI-NAD, our mission is to push the boundaries of neurotechnology by providing an integrated platform that empowers researchers, students, and enthusiasts to explore, learn, and innovate.
+        </p>
+        <h2>Our Vision</h2>
+        <p>
+            To become a leading platform for deep-tech neuroscientific exploration, empowering our users with advanced tools and a collaborative community to solve challenging problems in neuroscience.
+        </p>
 
-		<h2>Explore Cutting-Edge Technology</h2>
-		<p>
-			Our platform features advanced 3D visualization tools and real-time data analysis capabilities, enabling deep insights into the brain's intricate workings.
-		</p>
-		<picture>
-			<img
-				src="/assets/images/about/3d-brain-visualization.jpg"
-				alt="3D Brain Visualization"
-			/>
-		</picture>
+        <h2>Cutting-Edge Technology</h2>
+        <p>
+            Our platform is equipped with advanced 3D visualization tools and real-time data analysis capabilities, enabling profound insights into the brain's intricate workings.
+        </p>
+        <picture>
+            <img
+                src="/assets/images/about/3d-brain-visualization.jpg"
+                alt="3D Brain Visualization"
+            />
+        </picture>
 
-		<h2>Join a Community of Innovators</h2>
-		<p>
-			Collaborate with researchers and tech enthusiasts across the globe. Together, we're fostering a culture of innovation and breakthroughs in neurotechnology.
-		</p>
-		<picture>
-			<img
-				src="/assets/images/about/global-neurotech-community.jpg"
-				alt="Global Neurotechnology Community"
-			/>
-		</picture>
-	</TextSection>
+        <h2>Community of Innovators</h2>
+        <p>
+            Join a global community of researchers and tech enthusiasts. Together, we foster a culture of innovation and breakthroughs in neurotechnology.
+        </p>
+        <picture>
+            <img
+                src="/assets/images/about/global-neurotech-community.jpg"
+                alt="Global Neurotechnology Community"
+            />
+        </picture>
+    </TextSection>
 </Layout>
