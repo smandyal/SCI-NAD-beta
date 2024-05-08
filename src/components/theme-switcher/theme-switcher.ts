@@ -75,7 +75,7 @@ export class ThemeSwitcher extends LitElement {
 			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 				this._setTheme('dark');
 			} else{ // Set to default/light theme if no specification, or light theme is specified
-				this._setTheme('default');
+				this._setTheme('dark');
 			}
     		
     }
@@ -89,7 +89,7 @@ export class ThemeSwitcher extends LitElement {
 		this._doc.setAttribute('data-theme', theme);
 
     const _heroImage = document.querySelector('#home-hero-image') as HTMLImageElement;
-		if (theme === 'default') {
+		if (theme === 'dark') {
 			_heroImage.src = '/assets/images/home/classic-hero.jpg';
 		}
 		if (theme === 'dark') {
