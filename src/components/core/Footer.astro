@@ -2,6 +2,8 @@
 import { Icon } from 'astro-icon/components';
 import Container  from '../core/Container.astro';
 import LittleSticksPlug from './LittleSticksPlug.astro';
+import { ThemeSwitcher } from '@components/theme-switcher/theme-switcher';
+import settings from 'src/config/';
 
 const { footerSocials, footerLists, copyrightName, background, color, showLittleSticksPlug = true } =
   Astro.props;
@@ -49,9 +51,12 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
         ))
       }
     </div>
+  <div>
+  {<ThemeSwitcher client:only/>}
+</div>
     <div class="footer-copyright__container">
       {showLittleSticksPlug && <LittleSticksPlug/>}
-      <p>Copyright &copy; {new Date().getFullYear()} {copyrightName}</p>
+      <p>All Rights Reserved &copy; {new Date().getFullYear()} {copyrightName}</p>
     </div>
 
   </Container>
