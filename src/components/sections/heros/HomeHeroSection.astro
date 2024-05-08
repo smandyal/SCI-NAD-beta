@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { Container, Button } from '@components/odyssey-theme';
 import settings from '../../../config/settings.js';
-import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
+import { ThemeSwitcher } from '../../theme-switcher/theme-switcher';
 ---
 
 <Container>
@@ -10,68 +10,73 @@ import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
         <div class="hero-section__text">
             <h1>Synaptic Computational Interface for Neuro-Advancement Design</h1>
             <p>
-                Welcome to <a
-                    href="https://sci-nad.org"
-                    target="_blank"
-                    rel="noreferrer">SCI-NAD</a>, where the journey through neural pathways begins. Dive into our interactive 3D visualization of the human brain, and discover a dynamic, ever-expanding universe of neuroscience research.
+                Welcome to <a href="https://sci-nad.org" target="_blank" rel="noreferrer">SCI-NAD</a>, where the journey through neural pathways begins. Dive into our interactive 3D visualization of the human brain, and discover a dynamic, ever-expanding universe of neuroscience research.
             </p>
             <div class="hero-btns__container">
-                <Button href="/waitlist" customIcon
-                    >Join the Waitlist
-                <Fragment slot="icon">
-                  <Icon name="ic:baseline-chevron-right"/>
-                </Fragment>
+                <Button href="/waitlist" customIcon>
+                    Join the Waitlist
+                    <Fragment slot="icon">
+                        <Icon name="ic:baseline-chevron-right"/>
+                    </Fragment>
                 </Button>
                 <Button href="/demo" unelevated>Watch the Demo</Button>
             </div>
-            {settings.enableThemeSwitcher && <ThemeSwitcher client:only/>}
         </div>
-        <div class="hero-section__image">
-            <picture>
-                <img
-                    src="/assets/images/home/1.jpg"
-                    alt="Interactive 3D Brain Visualization"
-                    id="home-hero-image"
-                />
-            </picture>
+        <div class="hero-section__3d">
+            <!-- iframe with scale transformation for zoom effect -->
+            <iframe src='https://my.spline.design/aibrain-4d949a2b1c7f76f142dd07025bf38d03/' frameborder='0' style="width: 100%; height: 80vh; border: none; transform: scale(3); transform-origin: center;"></iframe>
         </div>
     </section>
 </Container>
 
 <style>
     .hero-section__section {
-        margin: var(--section-margin) auto;
+        position: relative;
+        width: 100vw; /* Ensures the section spans the full viewport width */
         min-height: clamp(90vh, 100vw, calc(100vh - var(--navbar-height)));
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
         gap: 1rem;
+        padding: 0; /* Removes any padding inside the section */
+        margin: 0 auto; /* Removes margin and centers the section horizontally */
+        overflow: hidden; /* Prevents any child elements from overflowing */
     }
     .hero-section__text {
         justify-self: center;
         max-width: 25rem;
+        z-index: 2; /* Ensures text is above the iframe */
+        position: relative;
+        color: white; /* Adjust text color for visibility if necessary */
     }
     .hero-btns__container {
         display: flex;
         align-items: center;
         gap: 1rem;
     }
-    .hero-btns__container {
-        margin-right: 1rem;
-    }
-    .hero-section__image {
+    .hero-section__3d {
         display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; /* Ensures the iframe or viewer fills the section */
+        height: 100%;
     }
-    .hero-section__image img {
+    .hero-section__3d iframe {
+        /* Adjust if you want to zoom in/out */
+        transform-origin: center;
         width: 100%;
         height: 100%;
-        max-height: 80vh;
-        object-fit: cover;
-        border-radius: var(--theme-shape-radius);
+        border: none;
     }
     @media (max-width: 768px) {
         .hero-section__section {
             grid-template-columns: 1fr;
+            padding: 0;
+        }
+        .hero-section__text, .hero-section__3d {
+            width: 100%; /* Ensures full width on smaller screens */
         }
     }
 </style>

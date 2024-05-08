@@ -27,6 +27,8 @@
 		"prettier-plugin-astro": "^0.0.12"
 	},
 	"dependencies": {
+		"@splinetool/runtime": "^1.2.8",
+		"spline": "^0.0.0",
 		"yarn": "^1.22.22"
 	}
 }
