@@ -19,45 +19,33 @@ const themes = [
 
 @customElement('theme-switcher')
 export class ThemeSwitcher extends LitElement {
-	static styles = [
-		css`
-			:host {
-				display: block;
-			}
-			button {
-				display: inline-flex;
-				outline: none;
-				border: none;
-				background-color: transparent;
-				border: 2px solid transparent;
-				border-radius: 20rem;
-				padding: 1px;
-				cursor: pointer;
-				transition: border var(--theme-transition);
-			}
-			button[active] {
-				border: 2px solid var(--theme-primary);
-        box-shadow: 0 0 12px 1px var(--theme-primary);
-			}
-			button:hover {
-				border: 2px solid var(--theme-primary);
-			}
-			.theme-switcher__container {
-				margin: 2rem 0;
-				display: grid;
-				grid-template-columns: repeat(5, 1fr);
-			}
-			.theme-select__container {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-			}
-			.theme-select__container p {
-				font-size: var(--font-size-sm);
-			}
-		`,
-	];
+	static styles = css`
+:host {
+  display: block;
+  position: absolute;  // Ensures positioning at the footer's bottom right
+  right: 20px;         // Right margin for the theme switcher
+  bottom: 10px;        // Bottom margin for the theme switcher
+}
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 4px 6px;    // Smaller padding for smaller button
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.7rem;  // Smaller font size
+  margin-right: 1px;  // Smaller margin for closer buttons
+}
+svg {
+  width: 20px;        // Smaller icon size
+  height: 20px;       // Smaller icon size
+}
+`;
+
 
 	// set the _doc element
 	private _doc = document.firstElementChild;

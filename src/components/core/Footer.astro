@@ -2,8 +2,8 @@
 import { Icon } from 'astro-icon/components';
 import Container  from '../core/Container.astro';
 import LittleSticksPlug from './LittleSticksPlug.astro';
+import settings  from '/Users/h/beta/src/config/settings.js';
 import { ThemeSwitcher } from '@components/theme-switcher/theme-switcher';
-import settings from 'src/config/';
 
 const { footerSocials, footerLists, copyrightName, background, color, showLittleSticksPlug = true } =
   Astro.props;
@@ -51,6 +51,9 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
         ))
       }
     </div>
+      <div class="theme-switcher-container">
+        {settings.enableThemeSwitcher &&<ThemeSwitcher client:only />}
+      </div>
     <div class="footer-copyright__container">
       {showLittleSticksPlug && <LittleSticksPlug/>}
       <p>All Rights Reserved &copy; {new Date().getFullYear()} {copyrightName}</p>
@@ -61,6 +64,7 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
 
 <style>
   footer {
+    position: relative;
     --footer-bg: var(--theme-primary);
     --footer-color: var(--theme-on-primary);
     min-height: 40vh;
@@ -68,6 +72,11 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
     color: var(--footer-color);
     border-top-left-radius: var(--theme-shape-radius);
     border-top-right-radius: var(--theme-shape-radius);
+  }
+  .theme-switcher-container {
+    position: absolute;
+    right: 80px;
+    bottom: 150px;
   }
   .footer-grid__container {
     padding: 10vh 0 1rem 0;
