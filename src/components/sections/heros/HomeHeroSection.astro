@@ -24,8 +24,7 @@ import { ThemeSwitcher } from '../../theme-switcher/theme-switcher';
             {settings.enableThemeSwitcher && <ThemeSwitcher client:only/>}
         </div>
         <div class="hero-section__3d">
-            <!-- iframe with scale transformation for zoom effect -->
-            <iframe src='https://my.spline.design/aibrain-4d949a2b1c7f76f142dd07025bf38d03/' frameborder='0' style="width: 100%; height: 80vh; border: none; transform: scale(3); transform-origin: center;"></iframe>
+            <iframe src='https://my.spline.design/aibrain-4d949a2b1c7f76f142dd07025bf38d03/' frameborder='0' style="width: 100%; height: 80vh; border: none; transform: scale(3.9);"></iframe>
         </div>
     </section>
 </Container>
@@ -33,51 +32,36 @@ import { ThemeSwitcher } from '../../theme-switcher/theme-switcher';
 <style>
     .hero-section__section {
         position: relative;
-        width: 100vw; /* Ensures the section spans the full viewport width */
+        margin: var(--section-margin) auto;
         min-height: clamp(90vh, 100vw, calc(100vh - var(--navbar-height)));
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
         gap: 1rem;
-        padding: 0; /* Removes any padding inside the section */
-        margin: 0 auto; /* Removes margin and centers the section horizontally */
-        overflow: hidden; /* Prevents any child elements from overflowing */
+        overflow: hidden;
     }
     .hero-section__text {
         justify-self: center;
         max-width: 25rem;
-        z-index: 2; /* Ensures text is above the iframe */
+        z-index: 2;
         position: relative;
-        color: white; /* Adjust text color for visibility if necessary */
     }
     .hero-btns__container {
         display: flex;
         align-items: center;
         gap: 1rem;
     }
+    .hero-btns__container {
+        margin-right: 1rem;
+    }
     .hero-section__3d {
         display: flex;
         justify-content: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%; /* Ensures the iframe or viewer fills the section */
-        height: 100%;
-    }
-    .hero-section__3d iframe {
-        /* Adjust if you want to zoom in/out */
-        transform-origin: center;
-        width: 100%;
-        height: 100%;
-        border: none;
+        position: relative;
     }
     @media (max-width: 768px) {
         .hero-section__section {
             grid-template-columns: 1fr;
-            padding: 0;
-        }
-        .hero-section__text, .hero-section__3d {
-            width: 100%; /* Ensures full width on smaller screens */
         }
     }
 </style>
