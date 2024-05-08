@@ -21,6 +21,7 @@ import { ThemeSwitcher } from '../../theme-switcher/theme-switcher';
                 </Button>
                 <Button href="/demo" unelevated>Watch the Demo</Button>
             </div>
+            {settings.enableThemeSwitcher && <ThemeSwitcher client:only/>}
         </div>
         <div class="hero-section__3d">
             <!-- iframe with scale transformation for zoom effect -->
