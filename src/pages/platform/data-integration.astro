@@ -1,0 +1,119 @@
+---
+import { Icon } from 'astro-icon/components';
+import {
+	AnnouncementBar,
+	Button,
+	CustomerQuoteSection,
+	ThreeColumnTextSection,
+	YouTubeEmbedSection,
+	StickyTextImageSection,
+	CtaCardSection,
+} from '@components/odyssey-theme';
+import Layout from '../../layouts/Page.astro';
+import TextAndImageHero from '../../components/sections/heros/TextAndImageHero.astro';
+
+const seo = {
+	title: 'Interactive 3D Visualization | SCI-NAD',
+	description: 'Explore how SCI-NAD’s 3D visualization tools are transforming neuroscience research.',
+};
+---
+
+<AnnouncementBar
+	text="Explore the New Frontiers in Neuroscience with Our 3D Visualization"
+	href="/features/3d-visualization"
+	slot="announcement-bar"
+/>
+<Layout {seo}>
+	<TextAndImageHero reversed>
+		<div slot="text-container">
+			<h1>Interactive 3D Visualization</h1>
+			<p>Unveiling the complexities of the human brain with unprecedented clarity.</p>
+		</div>
+		<div slot="btns-container">
+			<Button href="/features/3d-visualization" customIcon
+				>Discover More <Fragment slot="icon">
+					<Icon name="ic:baseline-chevron-right" />
+				</Fragment></Button
+			>
+		</div>
+		<picture slot="image-container">
+			<img
+				src="/assets/images/features/3d-brain-visualization.jpg"
+				alt="Interactive 3D Brain Visualization"
+				id="home-hero-image"
+			/>
+		</picture>
+	</TextAndImageHero>
+
+	<CustomerQuoteSection
+		quoteText="The SCI-NAD’s 3D visualization tools have transformed our approach to neurological research, allowing us to see and understand aspects of the brain we never could before."
+		customerName="Dr. Emily Roberts, Neuroscientist"
+	/>
+
+	<ThreeColumnTextSection>
+		<div slot="column-1-body">
+			<h2>Accuracy</h2>
+			<p>
+				Experience the high precision of our 3D models, enhancing the accuracy of neurological studies and surgeries.
+			</p>
+		</div>
+		<Button slot="column-1-cta" outlined>Learn More</Button>
+		<div slot="column-2-body">
+			<h2>Interactivity</h2>
+			<p>
+				Engage with interactive features that allow you to manipulate models for better understanding and analysis.
+			</p>
+		</div>
+		<Button slot="column-2-cta" outlined>Learn More</Button>
+		<div slot="column-3-body">
+			<h2>Application</h2>
+			<p>
+				Discover the wide range of applications, from educational tools to advanced research and clinical practice.
+			</p>
+		</div>
+		<Button slot="column-3-cta" outlined>Learn More</Button>
+	</ThreeColumnTextSection>
+
+	<YouTubeEmbedSection url="https://www.youtube.com/watch?v=dQw4w9WgXcQ" rounded
+	/>
+
+	<StickyTextImageSection>
+		<div slot="text-container">
+			<h2>Explore Features</h2>
+			<h3>Real-time Analysis</h3>
+			<p>
+				Instantly analyze complex neural pathways and interactions within our intuitive platform.
+			</p>
+			<h3>High Detail</h3>
+			<p>
+				Our technology captures intricate details of the brain, providing a comprehensive view of its structure.
+			</p>
+			<h3>Customizable Views</h3>
+			<p>
+				Customize views and layers to focus on specific areas of interest, enhancing both teaching and research.
+			</p>
+		</div>
+		<picture slot="image-container">
+			<img
+				src="/assets/images/features/detailed-brain.jpg"
+				alt="Detailed View of the Brain"
+				loading="lazy"
+			/>
+		</picture>
+	</StickyTextImageSection>
+
+	<CtaCardSection
+		background="var(--theme-surface-2)"
+		color="var(--theme-on-surface-2)"
+	>
+		<h2>Join Our Community Today</h2>
+		<p>
+			Become part of a pioneering community of neuroscientists and researchers utilizing the latest in 3D visualization technology.
+		</p>
+		<Button href="/community/join" customIcon
+			>Join Now<Fragment slot="icon">
+				<Icon name="ic:baseline-chevron-right" />
+			</Fragment></Button
+		>
+	</CtaCardSection>
+</Layout>
