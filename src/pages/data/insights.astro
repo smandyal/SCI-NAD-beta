@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+
+// Define the SEO metadata for the insights page
+const seo = {
+    title: 'Detailed Insights | SCI-NAD',
+    description: 'Explore how our contextual annotations unlock deeper insights into complex neural data.',
+};
+
+
+---
+
+<Base seo={seo}>
+    <style>{styles}</style>
+    <div slot="announcement-bar">
+        <p>Check out the latest updates on our insights platform!</p>
+    </div>
+    <div slot="header">
+        <h1>Insight Annotations</h1>
+    </div>
+    <section>
+        <h2>Understanding Insight Annotations</h2>
+        <p>Our Insight Annotations provide detailed, contextual information that helps researchers and academics to better understand complex datasets. These annotations are designed to enhance the clarity of data, making it easier to identify and analyze patterns that are not immediately obvious.</p>
+        <h3>Key Benefits</h3>
+        <ul>
+            <li>Enhanced Data Interpretation: Dive deeper into your data with enriched annotations.</li>
+            <li>Improved Research Efficiency: Spend less time guessing and more time concluding.</li>
+            <li>Greater Accessibility: Makes complex data understandable for a broader audience.</li>
+        </ul>
+        <h3>How It Works</h3>
+        <p>The Insight Annotations layer additional information over your data. This can include links to relevant studies, statistical analyses, or expert opinions. By integrating these insights directly into the viewing platform, users can access a wealth of information without needing to leave their workflow.</p>
+    </section>
+    <div slot="footer">
+        <p>© SCI-NAD 2024. All rights reserved.</p>
+    </div>
+</Base>

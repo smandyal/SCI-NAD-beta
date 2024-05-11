@@ -1,0 +1,81 @@
+---
+import { Icon } from 'astro-icon/components';
+import {
+    AnnouncementBar,
+    Button,
+    TextCardSection,
+    StickyTextImageSection,
+    CtaCardSection,
+} from '@components/odyssey-theme';
+import Layout from '../../layouts/Page.astro';
+import TextAndImageHero from '../../components/sections/heros/TextAndImageHero.astro';
+
+const seo = {
+    title: 'Open Data Integration | SCI-NAD',
+    description: 'Access and leverage a wide array of neurological data for comprehensive research and innovation.',
+};
+---
+<AnnouncementBar
+    text="Explore Our Extensive Neuroscience Data Repository"
+    href="/features/open-data-integration"
+    slot="announcement-bar"
+/>
+<Layout {seo}>
+    <TextAndImageHero>
+        <div slot="text-container">
+            <h1>Open Data Integration</h1>
+            <p>Seamlessly integrate and explore extensive datasets to enrich your research and applications in neuroscience.</p>
+        </div>
+        <div slot="btns-container">
+            <Button href="/features/open-data-integration" customIcon
+                >Discover More <Fragment slot="icon">
+                    <Icon name="ic:baseline-chevron-right" />
+                </Fragment></Button
+            >
+        </div>
+        <picture slot="image-container">
+            <img
+                src="/assets/images/features/open-data-access.jpg"
+                alt="Open Data Access"
+                id="home-hero-image"
+            />
+        </picture>
+    </TextAndImageHero>
+
+    <TextCardSection>
+        <h2>Data at Your Fingertips</h2>
+        <p>Explore opensource datasets from DANDI, DRYAD, OSF and more..leveraging FAIR (Findable, Accessible, Interoperable, and Reusable) data like NeuroData without Borders NWB data format </p>
+        <a href="/data/insights" class="button">Learn More</a>
+    </TextCardSection>
+   
+    <StickyTextImageSection>
+        <div slot="text-container">
+            <h2>Advanced Data Tools</h2>
+            <p>
+                Use powerful tools for data visualization and analysis to transform complex data into understandable and actionable insights.
+            </p>
+        </div>
+        <picture slot="image-container">
+            <img
+                src="/assets/images/features/data-visualization-tools.jpg"
+                alt="Data Visualization Tools"
+                loading="lazy"
+            />
+        </picture>
+    </StickyTextImageSection>
+
+    <CtaCardSection
+        background="var(--theme-surface-2)"
+        color="var(--theme-on-surface-2)"
+    >
+        <h2>Join Our Data-Driven Neuroscience Community</h2>
+        <p>
+            Enhance your projects and research with access to our comprehensive data repository. Join now to start leveraging the full potential of open data.
+        </p>
+        <Button href="/community/join" customIcon
+            >Get Started<Fragment slot="icon">
+                <Icon name="ic:baseline-chevron-right" />
+            </Fragment></Button
+        >
+    </CtaCardSection>
+</Layout>

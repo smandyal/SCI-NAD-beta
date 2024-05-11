@@ -18,19 +18,19 @@ export const footerSocials = [
 
 export const footerLists = [
     {
-        title: 'Explore Our Platform',
+        title: 'Core',
         items: [
             {
-                title: 'Hands-on Interaction & Simulations',
-                slug: '/platform/visualization',
+                title: 'Neural Playground',
+                slug: '/features/1',
             },
             {
-                title: 'Contextual Annotations',
-                slug: '/platform/data-analysis',
+                title: 'Insight Annotations',
+                slug: '/features/2',
             },
             {
                 title: 'Open Data Integration',
-                slug: '/platform/data-integration',
+                slug: '/features/3',
             },
         ],
     },
