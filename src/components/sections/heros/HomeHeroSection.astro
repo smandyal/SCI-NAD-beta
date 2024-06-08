@@ -8,7 +8,7 @@ import { ThemeSwitcher } from '../../theme-switcher/theme-switcher';
 <Container>
     <section class="hero-section__section">
         <div class="hero-section__text">
-            <h1>Synaptic Computational Interface for Neuro-Advancement Design</h1>
+            <h1>Advanced Neurotech Made Accessible</h1>
             <p>
                 Welcome to <a href="https://sci-nad.org" target="_blank" rel="noreferrer">SCI-NAD</a>, where the journey through neural pathways begins. Dive into our interactive 3D visualization of the human brain, and discover a dynamic, ever-expanding universe of neuroscience research.
             </p>
@@ -21,7 +21,6 @@ import { ThemeSwitcher } from '../../theme-switcher/theme-switcher';
                 </Button>
                 <Button href="/demo" unelevated>Watch the Demo</Button>
             </div>
-            {settings.enableThemeSwitcher && <ThemeSwitcher client:only/>}
         </div>
         <div class="hero-section__3d">
             <iframe src='https://my.spline.design/aibrain-4d949a2b1c7f76f142dd07025bf38d03/' frameborder='0' style="width: 100%; height: 80vh; border: none; transform: scale(3.9);"></iframe>
@@ -42,7 +41,7 @@ import { ThemeSwitcher } from '../../theme-switcher/theme-switcher';
     }
     .hero-section__text {
         justify-self: center;
-        max-width: 25rem;
+        max-width: 100rem;
         z-index: 2;
         position: relative;
     }
