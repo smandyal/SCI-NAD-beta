@@ -16,8 +16,11 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
   <Container>
     <div class="footer-grid__container">
       <div class="footer-brand__container">
-        <div>
+        <div class="footer-logo-svg__container">
           <slot name="logo" />
+          
+            <img src="/public/n.svg" alt="nvidia" class="footer-svg__icon" />
+          
         </div>
         <ul class="footer-socials__list">
           {
@@ -35,7 +38,9 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
               </li>
             ))
           }
+          
         </ul>
+        
       </div>
       {
         footerLists.map((list) => (
@@ -54,9 +59,11 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
     </div>
       
     <div class="footer-copyright__container">
+      
       {showLittleSticksPlug && <LittleSticksPlug/>}
       <p>All Rights Reserved &copy; {new Date().getFullYear()} {copyrightName}</p>
     </div>
+    
 
   </Container>
 </footer>
@@ -81,6 +88,10 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
     padding: 10vh 0 1rem 0;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+  .footer-logo-svg__container {
+    display: flex;
+    align-items: center;
   }
   .footer-socials__list {
     margin: 1rem 0;
@@ -113,6 +124,14 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
   .footer-copyright__container p {
     font-size: var(--font-size-sm);
   }
+  .footer-svg__container {
+        text-align: center;
+        margin-top: 1rem;
+      }
+      .footer-svg__icon {
+        width: 135px;
+        height: 45px;
+      }
   @media (max-width: 768px) {
     .footer-grid__container :first-child {
       grid-column: 1/-1;
