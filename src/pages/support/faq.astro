@@ -4,31 +4,42 @@ import LandingContactForm from '../../components/forms/LandingContactForm.astro'
 import Logo from '../../components/Logo.astro';
 
 const seo = {
-	title: 'Landing Page #2 | Astro Odyssey Theme',
-	description: 'Landing Page #2 | Astro Odyssey Theme',
+	title: 'FAQ | SCI-NAD',
+	description: 'Frequently Asked Questions about SCI-NAD',
 };
 ---
 
 <Layout seo={seo}>
   <div class="full-page-split__wrapper">
     <section class="full-page-split__image-section">
-      <div class="full-page-split__logo">
-        <a href="/">
-          <Logo />
-        </a>
-      </div>
-      <picture>
-        <img
-          src="/assets/images/home/classic-hero.jpg"
-          alt="Astro Odyssey"
-          class="full-page-split__image"
-        />
-      </picture>
+     
+      
     </section>
     <section class="full-page-split__content-section">
       <div class="full-page-split__content-container">  
-        <h1>Contact Us For a Free Consultation</h1>
-        <p>Fill out the form below to schedule a free consultation on your business' website needs.</p>
+        <h1>Frequently Asked Questions</h1>
+        <p>Welcome to the SCI-NAD FAQ page. Below you will find answers to the most common questions regarding our platform, mission, and features.</p>
+        
+        <div class="faq-section">
+          <h2>What is SCI-NAD?</h2>
+          <p>SCI-NAD is an advanced platform aimed at making neurotechnology accessible to everyone. Our goal is to simplify brain-electrode interactions and gamify neuroengineering education.</p>
+
+          <h2>Who is SCI-NAD for?</h2>
+          <p>SCI-NAD is designed for researchers, engineers, students, and enthusiasts in neuroscience and neuroengineering. Whether you're an expert or just getting started, our platform provides tools to help you learn and innovate.</p>
+
+          <h2>How can I use SCI-NAD?</h2>
+          <p>You can use SCI-NAD to build, visualize, and simulate neural networks and brain interactions in 3D, explore neural data, and test your own hypotheses through our platform's AI-driven knowledge graphs and decoding pipelines.</p>
+
+          <h2>What are the key features of SCI-NAD?</h2>
+          <p>SCI-NAD offers a 3D brain mapping tool, neural decoders, an intuitive interface for building neural montages, knowledge graphs, and AI-annotated research papers to help streamline your neuroengineering projects.</p>
+
+          <h2>How can I get started?</h2>
+          <p>Sign up for early access through our website. We offer onboarding materials, tutorials, and a step-by-step guide to help you get started with SCI-NAD.</p>
+          
+          <h2>Need further assistance?</h2>
+          <p>Contact us through the form below, and our team will be happy to assist you with any other questions or inquiries.</p>
+        </div>
+
         <LandingContactForm/>
       </div>
     </section>
@@ -46,7 +57,7 @@ const seo = {
   position: relative;
 }
 .full-page-split__image-section :global(img) {
- width: 100%;
+  width: 100%;
   height: 100vh;
   object-fit: cover;
 }
@@ -78,6 +89,17 @@ const seo = {
 .full-page-split__content-container h1 {
   font-size: var(--font-size-xl);
 }
+
+.faq-section h2 {
+  font-size: var(--font-size-lg);
+  margin-top: 1.5rem;
+}
+
+.faq-section p {
+  font-size: var(--font-size-md);
+  margin: 0.5rem 0;
+}
+
 @media(max-width: 768px) {
   .full-page-split__wrapper {
     grid-template-columns: 1fr;
@@ -88,4 +110,3 @@ const seo = {
   }
 }
 </style>
-
