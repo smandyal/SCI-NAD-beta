@@ -1,78 +1,45 @@
 ---
-import { Authenticator } from '@aws-amplify/ui-react';
+import { Button, Container, TextCardSection } from '@components/odyssey-theme';
 import Layout from '../layouts/Page.astro';
-import { Container } from '@components/odyssey-theme';
-
-import '../../amplify-init'; // Ensure this path is correct
 
 const seo = {
-  title: 'Community | SCI-NAD',
-  description: 'Join the SCI-NAD community and connect with fellow neuroscience enthusiasts.',
-};
-
-const handleSubmit = (event) => {
-  event.preventDefault();
-  const formData = new FormData(event.target);
-  const bio = formData.get('bio');
-
-  // Save the user bio to your backend or database here
-  console.log('User bio:', bio);
+	title: 'Get Started using the Astro Odyssey Theme',
+	description: 'Get started on how to setup and use this Astro theme.',
 };
 ---
 
-<Layout seo={seo}>
-  <Container>
-    <section class="community-section">
-      <Authenticator>
-        {({ signOut, user }) => (
-          user ? (
-            <div class="auth-container">
-              <h1>Welcome, {user.username}</h1>
-              <button onclick={() => signOut()}>Sign out</button>
-              <form onsubmit={handleSubmit}>
-                <label for="bio">Bio:</label>
-                <textarea id="bio" name="bio" required></textarea>
-                <button type="submit">Save</button>
-              </form>
-            </div>
-          ) : (
-            <div class="non-auth-container">
-              <h1>Join Our Community</h1>
-              <p>Sign in to share your profile and connect with other members.</p>
-            </div>
-          )
-        )}
-      </Authenticator>
-    </section>
-  </Container>
+<Layout {seo}>
+	<Container>
+		<TextCardSection>
+			<h1>404</h1>
+      <h2>Page Not Found 👀</h2>
+			<div class="cta-buttons__container">
+        <Button
+					href="/"
+					>
+          Return Home
+				</Button>
+			</div>
+		</TextCardSection>
+	</Container>
 </Layout>
 
 <style>
-  .community-section {
-    margin: var(--section-margin) auto;
-    min-height: calc(90vh - var(--navbar-height));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-  .auth-container, .non-auth-container {
-    padding: 2rem;
-    background-color: var(--theme-surface-1);
-    border-radius: var(--theme-shape-radius);
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  @media (max-width: 768px) {
-    .community-section {
-      margin: var(--section-margin-mobile) auto;
-    }
-  }
+	.cta-buttons__container {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.cta-buttons__container :global(a) {
+    margin-right: 1rem;
+		margin-bottom: 1rem;
+	}
+	.code-buttons__container {
+		margin: 1rem auto;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.code-buttons__container > a {
+		margin-right: 1rem;
+		margin-bottom: 1rem;
+	}
 </style>
