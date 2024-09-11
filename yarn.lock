@@ -2391,7 +2391,7 @@ astro@^4.0.0, astro@^4.4.13:
   optionalDependencies:
     sharp "^0.32.6"
 
-aws-amplify@^6.3.2, aws-amplify@^6.4.4:
+aws-amplify@^6.3.2:
   version "6.4.4"
   resolved "https://registry.npmjs.org/aws-amplify/-/aws-amplify-6.4.4.tgz"
   integrity sha512-WMfyWrBDSLpWBBZ/HQPGfu4eV0pSDoKWBgem1TwJrQOt/pJ15dFkcu5EcUW4LKVjICM9H7Tzq4i+i2ozH84Qsg==
