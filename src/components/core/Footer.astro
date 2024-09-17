@@ -1,70 +1,54 @@
 ---
 import { Icon } from 'astro-icon/components';
 import settings from '../../config/settings.js';
-import Container  from '../core/Container.astro';
+import Container from '../core/Container.astro';
 import LittleSticksPlug from './LittleSticksPlug.astro';
 
-import { ThemeSwitcher } from '@components/theme-switcher/theme-switcher';
-
-const { footerSocials, footerLists, copyrightName, background, color, showLittleSticksPlug = true } =
-  Astro.props;
+const { footerSocials, footerLists, copyrightName, background, color, showLittleSticksPlug = true } = Astro.props;
 ---
 
-<footer
-  style={background && `--footer-bg:${background}; --footer-color:${color}`}
->
+<footer style={background && `--footer-bg:${background}; --footer-color:${color}`}>
   <Container>
     <div class="footer-grid__container">
       <div class="footer-brand__container">
         <div class="footer-logo-svg__container">
           <slot name="logo" />
-          
-            <img src="/n.svg" alt="nvidia" class="footer-svg__icon" />
-          
+          <img src="/n.svg" alt="Nvidia logo" class="footer-svg__icon" width="135" height="45" loading="eager" />
         </div>
-        <ul class="footer-socials__list">
-          {
-            footerSocials.map((social) => (
-              <li class="footer-socials__item">
-                <a
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="footer-socials__link"
-                  title={`Open ${social.name} profile`}
-                >
-                  <Icon name={social.icon} width={24} height={24} />
-                </a>
-              </li>
-            ))
-          }
-          
+        <ul class="footer-socials__list" aria-label="Social media links">
+          {footerSocials.map((social) => (
+            <li class="footer-socials__item">
+              <a
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-socials__link"
+                aria-label={`Open ${social.name} profile`}
+              >
+                <Icon name={social.icon} width={24} height={24} />
+              </a>
+            </li>
+          ))}
         </ul>
-        
       </div>
-      {
-        footerLists.map((list) => (
-          <div>
-            <p><strong>{list.title}</strong></p>
-            <ul class="footer-link__list">
-              {list.items.map((item) => (
-                <li>
-                  <a href={item.slug}>{item.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </div>
-      
-    <div class="footer-copyright__container">
-      
-      {showLittleSticksPlug && <LittleSticksPlug/>}
-      <p>All Rights Reserved &copy; {new Date().getFullYear()} {copyrightName}</p>
+      {footerLists.map((list) => (
+        <div>
+          <h2 class="footer-list__title"><strong>{list.title}</strong></h2>
+          <ul class="footer-link__list" aria-label={list.title}>
+            {list.items.map((item) => (
+              <li>
+                <a href={item.slug} aria-label={item.title}>{item.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
     
-
+    <div class="footer-copyright__container">
+      {showLittleSticksPlug && <LittleSticksPlug />}
+      <p>All Rights Reserved &copy; {new Date().getFullYear()} {copyrightName}</p>
+    </div>
   </Container>
 </footer>
 
@@ -78,11 +62,6 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
     color: var(--footer-color);
     border-top-left-radius: var(--theme-shape-radius);
     border-top-right-radius: var(--theme-shape-radius);
-  }
-  .theme-switcher-container {
-    position: absolute;
-    right: 80px;
-    bottom: 150px;
   }
   .footer-grid__container {
     padding: 10vh 0 1rem 0;
@@ -119,19 +98,18 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
   .footer-copyright__container {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
   }
   .footer-copyright__container p {
     font-size: var(--font-size-sm);
   }
-  .footer-svg__container {
-        text-align: center;
-        margin-top: 1rem;
-      }
-      .footer-svg__icon {
-        width: 135px;
-        height: 45px;
-      }
+  .footer-svg__icon {
+    width: 135px;
+    height: 45px;
+  }
+  .footer-list__title {
+    font-size: var(--font-size-base);
+    margin-bottom: 0.5rem;
+  }
   @media (max-width: 768px) {
     .footer-grid__container :first-child {
       grid-column: 1/-1;

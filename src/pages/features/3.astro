@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
 import {
     AnnouncementBar,
     Button,
@@ -15,53 +16,58 @@ const seo = {
     description: 'Access and leverage a wide array of neurological data for comprehensive research and innovation.',
 };
 ---
-<AnnouncementBar
-    text="Explore Our Extensive Neuroscience Data Repository"
-    href="/features/open-data-integration"
-    slot="announcement-bar"
-/>
+
 <Layout {seo}>
+    <AnnouncementBar
+        text="Explore Our Extensive Neuroscience Data Repository"
+        href="/features/open-data-integration"
+        slot="announcement-bar"
+    />
+    
     <TextAndImageHero>
-        <div slot="text-container">
-            <h1>Open Data Integration</h1>
+        <Fragment slot="text-container">
+            <h1 class="text-gradient">Open Data Integration</h1>
             <p>Seamlessly integrate and explore extensive datasets to enrich your research and applications in neuroscience.</p>
-        </div>
-        <div slot="btns-container">
-            <Button href="/features/open-data-integration" customIcon
-                >Discover More <Fragment slot="icon">
-                    <Icon name="ic:baseline-chevron-right" />
-                </Fragment></Button
-            >
-        </div>
-        <picture slot="image-container">
-            <img
-                src="/assets/images/features/open-data-access.jpg"
-                alt="Open Data Access"
-                id="home-hero-image"
-            />
-        </picture>
+        </Fragment>
+        <Fragment slot="btns-container">
+            <Button href="/features/open-data-integration" customIcon>
+                Discover More
+                <Icon name="ic:baseline-chevron-right" slot="icon" />
+            </Button>
+        </Fragment>
+        <Image
+            slot="image-container"
+            src="/assets/images/features/open-data-access.webp"
+            alt="Open Data Access"
+            width={600}
+            height={400}
+            loading="eager"
+            decoding="async"
+        />
     </TextAndImageHero>
 
     <TextCardSection>
         <h2>Data at Your Fingertips</h2>
-        <p>Explore opensource datasets from DANDI, DRYAD, OSF and more..leveraging FAIR (Findable, Accessible, Interoperable, and Reusable) data like NeuroData without Borders NWB data format </p>
-        <a href="/data/insights" class="button">Learn More</a>
+        <p>Explore open-source datasets from DANDI, DRYAD, OSF, and more. Leverage FAIR (Findable, Accessible, Interoperable, and Reusable) data like NeuroData Without Borders (NWB) format.</p>
+        <Button href="/data/insights" outlined>Learn More</Button>
     </TextCardSection>
    
     <StickyTextImageSection>
-        <div slot="text-container">
+        <Fragment slot="text-container">
             <h2>Advanced Data Tools</h2>
             <p>
-                Use powerful tools for data visualization and analysis to transform complex data into understandable and actionable insights.
+                Utilize powerful tools for data visualization and analysis, transforming complex data into understandable and actionable insights.
             </p>
-        </div>
-        <picture slot="image-container">
-            <img
-                src="/assets/images/features/data-visualization-tools.jpg"
-                alt="Data Visualization Tools"
-                loading="lazy"
-            />
-        </picture>
+        </Fragment>
+        <Image
+            slot="image-container"
+            src="/assets/images/features/data-visualization-tools.webp"
+            alt="Data Visualization Tools"
+            width={500}
+            height={300}
+            loading="eager"
+            decoding="async"
+        />
     </StickyTextImageSection>
 
     <CtaCardSection
@@ -72,10 +78,9 @@ const seo = {
         <p>
             Enhance your projects and research with access to our comprehensive data repository. Join now to start leveraging the full potential of open data.
         </p>
-        <Button href="/community/join" customIcon
-            >Get Started<Fragment slot="icon">
-                <Icon name="ic:baseline-chevron-right" />
-            </Fragment></Button
-        >
+        <Button href="/community/join" customIcon>
+            Get Started
+            <Icon name="ic:baseline-chevron-right" slot="icon" />
+        </Button>
     </CtaCardSection>
 </Layout>

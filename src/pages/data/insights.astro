@@ -1,35 +1,104 @@
 ---
-import Base from '../../layouts/Base.astro';
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import {
+    AnnouncementBar,
+    Button,
+    TextCardSection,
+    StickyTextImageSection,
+    CtaCardSection,
+} from '@components/odyssey-theme';
+import Layout from '../../layouts/Page.astro';
+import TextAndImageHero from '../../components/sections/heros/TextAndImageHero.astro';
 
-// Define the SEO metadata for the insights page
 const seo = {
-    title: 'Detailed Insights | SCI-NAD',
-    description: 'Explore how our contextual annotations unlock deeper insights into complex neural data.',
+    title: 'Insight Annotations | SCI-NAD',
+    description: 'Unlock deeper insights with our advanced contextual annotations for complex neural data.',
 };
 
+const benefits = [
+    { icon: 'mdi:clock-fast', text: 'Accelerate research with instant context' },
+    { icon: 'mdi:brain', text: 'Enhance understanding of complex neural patterns' },
+    { icon: 'mdi:account-group', text: 'Facilitate collaboration across disciplines' },
+];
 
 ---
 
-<Base seo={seo}>
-    <style>{styles}</style>
-    <div slot="announcement-bar">
-        <p>Check out the latest updates on our insights platform!</p>
-    </div>
-    <div slot="header">
-        <h1>Insight Annotations</h1>
-    </div>
-    <section>
-        <h2>Understanding Insight Annotations</h2>
-        <p>Our Insight Annotations provide detailed, contextual information that helps researchers and academics to better understand complex datasets. These annotations are designed to enhance the clarity of data, making it easier to identify and analyze patterns that are not immediately obvious.</p>
-        <h3>Key Benefits</h3>
-        <ul>
-            <li>Spend less time guessing and more time concluding.</li>
-            <li>Greater Accessibility: Makes complex data understandable for a broader audience.</li>
-        </ul>
-        <h3>How It Works</h3>
-        <p>The Insight Annotations layer additional information over your data. This can include links to relevant studies, statistical analyses, or expert opinions. By integrating these insights directly into the viewing platform, users can access a wealth of information without needing to leave their workflow.</p>
-    </section>
-    <div slot="footer">
-        <p>© SCI-NAD 2024. All rights reserved.</p>
-    </div>
-</Base>
+<Layout {seo}>
+    <AnnouncementBar
+        text="New feature: Real-time collaborative annotations now available!"
+        href="/features/insight-annotations"
+        slot="announcement-bar"
+    />
+    
+    <TextAndImageHero>
+        <Fragment slot="text-container">
+            <h1 class="text-gradient">Insight Annotations</h1>
+            <p>Our Insight Annotations provide rich, contextual information that empowers researchers to unlock hidden patterns and accelerate breakthroughs in neuroscience.</p>
+        </Fragment>
+        <Fragment slot="btns-container">
+            <Button href="/demo" customIcon>
+                Try Interactive Demo
+                <Icon name="ic:baseline-chevron-right" slot="icon" />
+            </Button>
+        </Fragment>
+        <Image
+            slot="image-container"
+            src="/assets/images/features/insight-annotations-demo.webp"
+            alt="Insight Annotations Demo"
+            width={600}
+            height={400}
+            loading="eager"
+            decoding="async"
+        />
+    </TextAndImageHero>
+
+    <TextCardSection>
+        <h2>Revolutionizing Neural Data Analysis</h2>
+        <p>Unlock the full potential of your neural data with our advanced annotation tools.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {benefits.map(benefit => (
+                <div class="flex items-center space-x-3 bg-surface-2 p-4 rounded-lg">
+                    <Icon name={benefit.icon} class="w-8 h-8 text-primary-500" />
+                    <p class="font-medium">{benefit.text}</p>
+                </div>
+            ))}
+        </div>
+    </TextCardSection>
+
+    <StickyTextImageSection>
+        <Fragment slot="text-container">
+            <h2>How It Works</h2>
+            <p>Insight Annotations seamlessly integrate with your existing workflow:</p>
+            <ol class="list-decimal list-inside space-y-2">
+                <li>Upload your neural data</li>
+                <li>Our AI analyzes and generates contextual annotations</li>
+                <li>Explore interactive visualizations with layered insights</li>
+                <li>Collaborate in real-time with your team</li>
+            </ol>
+        </Fragment>
+        <Image
+            slot="image-container"
+            src="/assets/images/features/insight-annotations-workflow.webp"
+            alt="Insight Annotations Workflow"
+            width={500}
+            height={300}
+            loading="eager"
+            decoding="async"
+        />
+    </StickyTextImageSection>
+
+    <CtaCardSection
+        background="var(--theme-surface-2)"
+        color="var(--theme-on-surface-2)"
+    >
+        <h2>Ready to Enhance Your Research?</h2>
+        <p>
+            Join our community of researchers leveraging advanced annotations to push the boundaries of neuroscience.
+        </p>
+        <Button href="/signup" customIcon>
+            Get Started
+            <Icon name="ic:baseline-chevron-right" slot="icon" />
+        </Button>
+    </CtaCardSection>
+</Layout>

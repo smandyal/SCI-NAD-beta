@@ -3,6 +3,23 @@ import Container from '../core/Container.astro';
 
 const {background, color} = Astro.props;
 ---
+<!-- 
+This component creates a Call-to-Action (CTA) card section.
+It's designed to be a flexible, reusable component for displaying important messages or prompts to users.
+
+Key features:
+1. Customizable background and text color through props
+2. Responsive design using CSS variables
+3. Centered content with flexible slot for custom content
+
+Usage:
+<CtaCardSection background="#f0f0f0" color="#333333">
+  <h2>Sign up now!</h2>
+  <p>Get exclusive access to our services.</p>
+  <Button href="/signup">Join Today</Button>
+</CtaCardSection>
+-->
+
 <Container>
   <section class="cta-card__section" style={background && `--section-bg:${background}; --section-color:${color}`}>
     <div class="cta-card__container">
@@ -13,6 +30,7 @@ const {background, color} = Astro.props;
 
 <style>
   .cta-card__section {
+    /* Default colors from theme, can be overridden by props */
     --section-bg: var(--theme-surface-1);
     --section-color: var(--theme-on-surface-1);
     margin: var(--section-margin) auto;

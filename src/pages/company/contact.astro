@@ -9,7 +9,7 @@ const seo = {
 };
 ---
 
-<Layout seo={seo}>
+<Layout {seo}>
 	<Container>
 		<section class="contact-hero__section">
 			<div class="contact-hero__text-section">
@@ -17,40 +17,31 @@ const seo = {
 				<p>
 					Join the SCI-NAD community and stay at the forefront of neuroscience innovation. Subscribe to our waitlist for exclusive early access to new features, insights into cutting-edge research, and regular updates from our team of neurotechnology experts.
 				</p>
-				<div>
-					<p>
-						Questions or feedback? We're here to help:
-						<em><a href="mailto:support@sci-nad.org">support@sci-nad.org</a></em>
-					</p>
-				</div>
+				<p>
+					Questions or feedback? We're here to help:
+					<em><a href="mailto:support@sci-nad.org">support@sci-nad.org</a></em>
+				</p>
 			</div>
-			<div class="col-2__container">
-				<ContactForm />
-			</div>
+			<ContactForm />
 		</section>
 	</Container>
 </Layout>
 
 <style>
 	.contact-hero__section {
-		margin: var(--section-margin) auto;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		min-height: calc(90vh - var(--navbar-height));
 		gap: 3rem;
+		min-height: calc(90vh - var(--navbar-height));
+		margin: var(--section-margin) auto;
 	}
 	.contact-hero__text-section {
-		padding: 2rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		padding: 2rem;
 		background-color: var(--theme-surface-1);
 		border-radius: var(--theme-shape-radius);
-	}
-	.col-2__container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
 	}
 	@media (max-width: 768px) {
 		.contact-hero__section {

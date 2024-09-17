@@ -1,9 +1,7 @@
 ---
-// Import necessary UI components and layout
 import { Container, FeatureCard } from '@components/odyssey-theme';
 import Layout from '../layouts/Page.astro';
 import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
-
 ---
 
 <Layout>
@@ -11,9 +9,7 @@ import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro'
     <Container>
         <section class="feature-card__section">
             <h2>Core Features</h2>
-            <p>
-                Discover the tools that revolutionize neuroscience research and learning.
-            </p>
+            <p>Discover the tools that revolutionize neuroscience research and learning.</p>
             <div class="feature-card__grid">
                 <FeatureCard href="/features/1" title="Neural Playground" imgSrc="/pf1.gif">
                     Intuitive and interactive brain mapping combined with real-time simulation of neural data.
@@ -30,19 +26,14 @@ import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro'
 </Layout>
 
 <style>
-    .feature-card__section, .minimal-support-section {
-        margin: 50px auto;
+    .feature-card__section {
+        margin: 3rem auto;
         text-align: center;
     }
     .feature-card__grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 50px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
         justify-items: center;
-    }
-    @media (max-width: 768px) {
-        .feature-card__grid {
-            grid-template-columns: 1fr;
-        }
     }
 </style>

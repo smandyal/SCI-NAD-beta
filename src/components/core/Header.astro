@@ -37,16 +37,25 @@ const { navData, rightMenu } = Astro.props;
     
     navHeader.toggleAttribute('mobile-menu-open');
   }
+
+  // Add scroll event listener to handle header transparency
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+      navHeader.classList.add('header-transparent');
+    } else {
+      navHeader.classList.remove('header-transparent');
+    }
+  });
 </script>  
 
-<header id="odysseyNavHeader" class={`${rightMenu ? "header--right" : ``.trim()}`}>
+<header id="odysseyNavHeader" class={`sticky-header ${rightMenu ? "header--right" : ""}`.trim()}>
   <div class="header-logo-menu__container">
   <button id="menuButton" title="Open Main Menu">
     <span id="menuButtonIconHam">
-      <Icon name="ic:baseline-menu" width="24px" height="24px" />
+      <Icon name="ic:baseline-menu" width={24} height={24} />
     </span>
     <span id="menuButtonIconClose" hidden>
-      <Icon name="ic:baseline-close" width="24px" height="24px" />
+      <Icon name="ic:baseline-close" width={24} height={24} />
     </span>
   </button>
   <a class="header-logo__link" href="/">
@@ -72,6 +81,18 @@ const { navData, rightMenu } = Astro.props;
 </header>
 
 <style>
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--theme-bg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .header-transparent {
+    background-color: transparent;
+    box-shadow: none;
+  }
   header {
     width: 100%;
     padding: 1rem 0.5rem;

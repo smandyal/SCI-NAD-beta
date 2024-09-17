@@ -1,9 +1,19 @@
 ---
-// Your Astro component script block remains empty as no scripting is needed.
+import { Image } from 'astro:assets';
+import logoImage from '/public/logo.png';
 ---
 
 <div class="logo-container">
-    <img src="/logo.png" alt="Neuralink?" class="logo-image" loading="lazy"/>
+    <Image 
+        src={logoImage} 
+        alt="SCI-NAD Logo" 
+        class="logo-image" 
+        width={100} 
+        height={100} 
+        format="webp" 
+        quality={100}
+        loading="eager"
+    />
     <p class="logo-text">SCI-NAD</p>
 </div>
 
@@ -11,13 +21,13 @@
     .logo-container {
         display: flex;
         align-items: center;
-        gap: 10px; /* Adjust the gap as needed */
+        gap: 10px;
     }
 
     .logo-image {
-        width: 50px; /* Adjust size as needed */
-        height: auto;
-        margin: 0; /* Removes margin if not needed */
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
     }
 
     .logo-text {
@@ -25,12 +35,12 @@
         font-size: var(--font-size-md);
         color: inherit;
         text-decoration: none;
-        margin: 0; /* Ensures no margin is affecting layout */
-        cursor: default; /* Sets default cursor */
+        margin: 0;
+        cursor: default;
     }
 
     .logo-text:hover {
         text-decoration: underline;
-        cursor: pointer; /* Only change cursor on hover */
+        cursor: pointer;
     }
 </style>
