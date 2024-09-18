@@ -1,6 +1,7 @@
 ---
 import settings from '../../config/settings.js';
 import ThemeProvider from '../theme-switcher/ThemeProvider.astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 import '../../styles/index.css';
 
@@ -40,3 +41,5 @@ const { title = settings.title, description = settings.description, canonicalURL
     // Place Google Analytics code here.
   }
 </script>
+
+<!-- Removed SpeedInsights component as it's not a valid component -->
