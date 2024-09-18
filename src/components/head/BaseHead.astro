@@ -1,7 +1,7 @@
 ---
 import settings from '../../config/settings.js';
 import ThemeProvider from '../theme-switcher/ThemeProvider.astro';
-import SpeedInsights from '@vercel/speed-insights/astro';
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 import '../../styles/index.css';
 
@@ -37,9 +37,9 @@ const { title = settings.title, description = settings.description, canonicalURL
 {settings.enableThemeSwitcher && <ThemeProvider />}
 
 <script is:inline>
-  if(window.location.hostname !== 'localhost') {
-    // Place Google Analytics code here.
+  function speedInsightsBeforeSend(data){
+    console.log("Speed Insights before send", data)
+    return data;
   }
 </script>
-
-<!-- Removed SpeedInsights component as it's not a valid component -->
+<SpeedInsights/>
