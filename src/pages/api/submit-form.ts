@@ -8,14 +8,10 @@ export const POST: APIRoute = async ({ request }) => {
   const HowDidYouHearAboutUs = data.get('HowDidYouHearAboutUs');
   const Message = data.get('Message');
 
-  console.log('Form data:', { Name, Email, HowDidYouHearAboutUs, Message });
-
   if (!process.env.POSTGRES_URL) {
     console.error('POSTGRES_URL is not set');
     return new Response(JSON.stringify({ error: 'Database configuration error' }), { status: 500 });
   }
-
-  console.log('POSTGRES_URL:', process.env.POSTGRES_URL);
 
   try {
     const result = await sql`

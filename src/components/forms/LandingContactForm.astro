@@ -10,18 +10,7 @@ const selectOptions = [
 
 ---
 
-<!-- This component creates a landing page contact form with the following functionality:
-1. Imports necessary components: Icon from astro-icon/components, Button and FormInput from @components/odyssey-theme.
-2. Defines a list of options for a select field (though it's not used in the current form).
-3. Renders a form with the following fields:
-   - First Name (text input)
-   - Last Name (text input)
-   - Email (email input)
-4. Includes a submit button with a custom icon (chevron-right).
-5. Sets the form to POST data to "/contact-thank-you" on submission.
-6. Applies a grid layout to the form with 1 column and 1rem gap between elements. -->
-
-<form name="Contact Form" method="POST" action="/contact-thank-you" >
+<form name="LandingContactForm" method="POST" action="/api/submit-form" >
   <FormInput type="text" label="First Name" name="First Name" placeholder="Elon" />
   <FormInput type="text" label="Last Name" name="Last Name" placeholder="Musk" />
   <FormInput type="email" label="Email" name="Email" placeholder="musk@neuralink.com" />

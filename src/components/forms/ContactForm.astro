@@ -6,6 +6,7 @@ const selectOptions = [
   "LinkedIn",
   "NeuroscienceNews.com",
 ]
+
 ---
 
 <!-- This component creates a contact form with the following functionality:
@@ -18,14 +19,15 @@ const selectOptions = [
    - Message (textarea)
 4. Includes a submit button.
 5. Sets the form to POST data to "/api/submit-form" on submission.
-6. Applies a grid layout to the form with 1 column and 1rem gap between elements. -->
+6. Applies a grid layout to the form with 1 column and 1rem gap between elements.
+7. Form data is sent to a serverless function that inserts it into a Vercel Postgres database. -->
 
 <form name="Contact Form" method="POST" action="/api/submit-form">
-  <FormInput type="text" label="Name" name="Name" placeholder="Elon Musk" />
-  <FormInput type="email" label="Email" name="Email" placeholder="musk@neuralink.com" />
-  <FormSelect label="How Did You Hear About Us?" name="HowDidYouHearAboutUs" options={selectOptions} />
-  <FormTextarea label="Message" name="Message" placeholder="Your message here..." />
-  <Button>Submit</Button>
+  <FormInput type="text" label="Name" name="Name" placeholder="Elon Musk" required />
+  <FormInput type="email" label="Email" name="Email" placeholder="musk@neuralink.com" required />
+  <FormSelect label="How Did You Hear About Us?" name="HowDidYouHearAboutUs" options={selectOptions} required />
+  <FormTextarea label="Message" name="Message" placeholder="Your message here..." required />
+  <Button type="submit">Submit</Button>
 </form>
 
 <style>

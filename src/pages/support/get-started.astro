@@ -1,5 +1,5 @@
 ---
-import {Icon} from 'astro-icon/components';
+import { Icon } from 'astro-icon/components';
 import { Button, Container, TextCardSection } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
 
@@ -15,34 +15,34 @@ const seo = {
 			<h1>Join the SCI-NAD Waitlist</h1>
 			<p>Sign up today to get early access to revolutionary neuroscience tools and research advancements.</p>
 			<div class="cta-buttons__container">
-        <Button
-        href="https://sci-nad.org/register"
-        outlined
-        newTab
-        customIcon
-        >
-        Register Now
-        <Fragment slot="icon">
-          <Icon name="ic:baseline-chevron-right" />
-        </Fragment>
-      </Button>
-        <Button
-					href="/updates/latest-features"
-          customIcon
-					>
-          Learn About Features
-          <Fragment slot="icon">
-            <Icon name="ic:baseline-chevron-right" />
-          </Fragment>
+				<Button
+					href="https://sci-nad.org/register"
+					outlined
+					newTab
+					customIcon
+				>
+					Register Now
+					<Fragment slot="icon">
+						<Icon name="ic:baseline-chevron-right" />
+					</Fragment>
 				</Button>
-        <Button
+				<Button
+					href="/updates/latest-features"
+					customIcon
+				>
+					Learn About Features
+					<Fragment slot="icon">
+						<Icon name="ic:baseline-chevron-right" />
+					</Fragment>
+				</Button>
+				<Button
 					href="/updates/news"
-          customIcon
-					>
-          Latest News
-          <Fragment slot="icon">
-            <Icon name="ic:baseline-chevron-right" />
-          </Fragment>
+					customIcon
+				>
+					Latest News
+					<Fragment slot="icon">
+						<Icon name="ic:baseline-chevron-right" />
+					</Fragment>
 				</Button>
 			</div>
 		</TextCardSection>
@@ -53,6 +53,6 @@ const seo = {
 	.cta-buttons__container {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1rem;  /* Adds a space between buttons */
+		gap: 1rem;
 	}
 </style>
