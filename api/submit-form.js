@@ -7,6 +7,8 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { firstName, lastName, email } = req.body;
 
+    console.log('POSTGRES_URL:', process.env.POSTGRES_URL);
+
     try {
       // Insert the form data into PostgreSQL
       // Use the POSTGRES_URL environment variable
