@@ -5,6 +5,37 @@ const { href, unelevated, outlined, customIcon, onPrimary, newTab } =
 const Tag = href ? 'a' : 'button';
 ---
 
+<!-- This component creates a versatile button or link element with the following functionality:
+
+1. It accepts several props to customize its appearance and behavior:
+   - href: If provided, renders an anchor tag; otherwise, renders a button.
+   - unelevated: Applies a transparent background style.
+   - outlined: Applies an outlined style.
+   - customIcon: Allows for a custom icon to be added.
+   - onPrimary: Applies styling for use on primary color backgrounds.
+   - newTab: If true, opens links in a new tab.
+
+2. It dynamically chooses between rendering an <a> tag or a <button> based on the presence of the href prop.
+
+3. It applies CSS classes based on the provided props to style the button/link accordingly.
+
+4. For links (when href is provided):
+   - It sets the target attribute to '_blank' if newTab is true.
+   - It sets the rel attribute to 'noopener noreferrer' for security when opening in a new tab.
+
+5. It includes a slot for the main content of the button/link.
+
+6. If customIcon is true, it provides an additional slot for inserting a custom icon.
+
+7. The component includes styles that:
+   - Set a consistent base style for the button/link.
+   - Apply different styles based on the unelevated, outlined, and onPrimary props.
+   - Style the custom icon if present.
+   - Ensure proper styling for both anchor and button elements.
+   - Provide hover effects.
+
+This component allows for flexible use throughout an application, supporting various button styles and link functionality with a unified API. -->
+
 <Tag
   class={`btn ${unelevated && `btn--unelevated`} ${
     outlined && `btn--outlined`

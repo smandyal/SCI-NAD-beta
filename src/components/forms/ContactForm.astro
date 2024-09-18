@@ -9,6 +9,18 @@ const selectOptions = [
 
 ---
 
+<!-- This component creates a contact form with the following functionality:
+1. Imports necessary form components from the odyssey-theme.
+2. Defines a list of options for the "How Did You Hear About Us?" dropdown.
+3. Renders a form with the following fields:
+   - Name (text input)
+   - Email (email input)
+   - How Did You Hear About Us? (dropdown select)
+   - Message (textarea)
+4. Includes a submit button.
+5. Sets the form to POST data to "/contact-thank-you" on submission.
+6. Applies a grid layout to the form with 1 column and 1rem gap between elements. -->
+
 <form name="Contact Form" method="POST" action="/contact-thank-you">
   <FormInput type="text" label="Name" name="Name" placeholder="Elon Musk" />
   <FormInput type="email" label="Email" name="Email" placeholder="musk@neuralink.com" />

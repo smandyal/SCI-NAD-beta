@@ -2,6 +2,34 @@
 const {text, href, newTab} = Astro.props;
 ---
 
+<!-- 
+To use this AnnouncementBar component:
+
+1. Import it in your Astro file:
+   import AnnouncementBar from '../components/core/AnnouncementBar.astro';
+
+2. Use it in your markup, passing the required props:
+   <AnnouncementBar 
+     text="Your announcement text here" 
+     href="/your-link-here" 
+     newTab={true} 
+   />
+
+3. Customize the props as needed:
+   - text: The content of your announcement
+   - href: The URL the announcement links to
+   - newTab: Set to true if you want the link to open in a new tab
+
+Example:
+<AnnouncementBar 
+  text="Check out our new feature!" 
+  href="/new-feature" 
+  newTab={false} 
+/>
+
+This will create an announcement bar at the top of your page with the specified text and link.
+-->
+
 <div class="announcement-banner__container">
   <p>
     {newTab ?

@@ -1,14 +1,20 @@
 ---
+// This component creates a reusable form textarea field.
+// It does the following:
 
+// 1. Accepts props for label, name, placeholder, rows, and required status.
 const { label, name, placeholder, rows = 4, required} = Astro.props;
 ---
 
 <div class="form-field__container">
+  {/* 2. Renders a label if one is provided */}
   {label && <label for={name}>{label}</label>}
+  {/* 3. Creates a textarea element with the given name, placeholder, rows, and required status */}
   <textarea name={name} placeholder={placeholder} rows={rows} required={required}></textarea>
 </div>
 
 <style>
+  /* 4. Applies consistent styling to the textarea element */
   .form-field__container textarea{
     --form-field-border-width: 2px;
     width: 100%;
@@ -18,6 +24,7 @@ const { label, name, placeholder, rows = 4, required} = Astro.props;
     border-radius: var(--form-field-border-radius, 0.25rem);
     outline-style: none;
   }
+  /* 5. Adds a focus state style for the textarea */
   .form-field__container textarea:focus {
     border: var(--form-field-border-width) solid var(--form-field-border-focus-color, #000);
   }

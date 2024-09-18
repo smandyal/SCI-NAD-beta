@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "odyssey-theme-sapling",
+    "site": "SCI-NAD",
     "public": "dist",
     "ignore": [
       "firebase.json",

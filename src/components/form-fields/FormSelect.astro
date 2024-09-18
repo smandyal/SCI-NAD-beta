@@ -30,4 +30,13 @@ const { label, name, options, required} = Astro.props;
   </select>
 </div>
 
-
+<!-- This component creates a reusable form select field.
+It does the following:
+1. Accepts props for label, name, options, and required status.
+2. Applies consistent styling to the select element, including width, padding, border, color, and font properties.
+3. Removes the default gloss effect on select dropdowns in Safari.
+4. Renders a label if one is provided.
+5. Creates a select element with the given name and required status.
+6. Adds a default disabled option as the initial selection.
+7. Maps through the provided options array to create option elements.
+8. Allows for easy integration and reuse in various forms throughout the application. -->

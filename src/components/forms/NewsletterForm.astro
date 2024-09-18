@@ -4,6 +4,17 @@ import {Button, FormInput } from "@components/odyssey-theme";
 
 ---
 
+<!-- This component creates a newsletter subscription form with the following functionality:
+1. Imports necessary components: Icon from astro-icon/components, Button and FormInput from @components/odyssey-theme.
+2. Renders a form with the following elements:
+   - An email input field (using FormInput component)
+   - A submit button with a custom icon (using Button component)
+3. Sets the form to POST data to "/newsletter-thank-you" on submission.
+4. Applies a responsive grid layout to the form:
+   - On larger screens (>600px), it displays the input and button side by side.
+   - On smaller screens (<=600px), it stacks the input and button vertically.
+5. Uses a custom icon (chevron-right) for the submit button. -->
+
 <form name="Newsletter Form" method="POST" action="/newsletter-thank-you">
   <div class="newsletter-form__container">
     <FormInput name="Email" placeholder="musk@neuralink.com"/>
