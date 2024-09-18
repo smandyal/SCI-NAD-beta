@@ -2,106 +2,77 @@
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import {
-    AnnouncementBar,
     Button,
-    CustomerQuoteSection,
-    ThreeColumnTextSection,
-    StickyTextImageSection,
-    CtaCardSection,
+    Container,
+    TextCardSection,
 } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
-import TextAndImageHero from '../../components/sections/heros/TextAndImageHero.astro';
 
 const seo = {
-    title: 'Neural Playground | SCI-NAD',
-    description: 'Explore complex brain functions through interactive neural simulations.',
+    title: 'Interactive Neural Simulator | SCI-NAD',
+    description: 'Explore and interact with 3D brain models while simulating neural activity in real-time.',
 };
-
 ---
 
 <Layout {seo}>
-    <AnnouncementBar
-        text="Experience Interactive Neuroscience in our Neural Playground"
-        href="/features/neural-playground"
-        slot="announcement-bar"
-    />
-    
-    <TextAndImageHero reversed>
-        <Fragment slot="text-container">
-            <h1 class="text-gradient">Neural Playground</h1>
-            <p>Unravel neuroscience mysteries through our cutting-edge 3D neural simulations.</p>
-        </Fragment>
-        <Fragment slot="btns-container">
-            <Button href="/features/neural-playground" customIcon>
-                Dive In
-                <Icon name="ic:baseline-chevron-right" slot="icon" />
-            </Button>
-        </Fragment>
-        <Image
-            slot="image-container"
-            src="/assets/images/b.jpg"
-            alt="Interactive Neural Simulation"
-            width={500}
-            height={500}
-            loading="eager"
-            decoding="async"
-        />
-    </TextAndImageHero>
+    <Container>
+        <TextCardSection>
+            <h1>Interactive Neural Simulator</h1>
+            <p>Explore and interact with 3D brain models while simulating neural activity in real-time.</p>
+            
+            <div class="feature-image">
+                <Image
+                    src="/pf1.gif"
+                    alt="Interactive Neural Simulator"
+                    width={600}
+                    height={400}
+                    loading="eager"
+                    decoding="async"
+                />
+            </div>
 
-    <CustomerQuoteSection
-        quoteText="SCI-NAD's simulations revolutionize neuroscience learning, making complex brain functions accessible to all."
-        customerName="Dr. Alice Huxley, Neuroscientist"
-    />
+            <h2>Key Features:</h2>
+            <ul>
+                <li>Realistic 3D brain models</li>
+                <li>Real-time neural activity simulation</li>
+                <li>Interactive exploration of brain regions</li>
+                <li>Customizable parameters for in-depth study</li>
+            </ul>
 
-    <ThreeColumnTextSection>
-        <Fragment slot="column-1-body">
-            <h2>Interactive Learning</h2>
-            <p>Engage with real-time neural interactions, simplifying complex concepts.</p>
-        </Fragment>
-        <Button slot="column-1-cta" outlined>Explore</Button>
-        
-        <Fragment slot="column-2-body">
-            <h2>Accessible Models</h2>
-            <p>Intuitive designs for educators and enthusiasts, breaking down entry barriers.</p>
-        </Fragment>
-        <Button slot="column-2-cta" outlined>Discover</Button>
-        
-        <Fragment slot="column-3-body">
-            <h2>Advanced Applications</h2>
-            <p>Unlock new potentials in education and research through our simulations.</p>
-        </Fragment>
-        <Button slot="column-3-cta" outlined>Innovate</Button>
-    </ThreeColumnTextSection>
+            <p>Whether you're a student, researcher, or enthusiast, our Interactive Neural Simulator provides an immersive experience to enhance your understanding of brain function and neural networks.</p>
 
-    <StickyTextImageSection>
-        <Fragment slot="text-container">
-            <h2>Real-World Neuroscience Scenarios</h2>
-            <p>
-                From clinical neurology to cognitive science, enhance your understanding through practical applications.
-            </p>
-        </Fragment>
-        <Image
-            slot="image-container"
-            src="/assets/images/features/detailed-neural-model.jpg"
-            alt="Detailed Neural Model"
-            width={400}
-            height={300}
-            loading="eager"
-            decoding="async"
-        />
-    </StickyTextImageSection>
-
-    <CtaCardSection
-        background="var(--theme-surface-2)"
-        color="var(--theme-on-surface-2)"
-    >
-        <h2>Join Our Neuroscience Innovation Community</h2>
-        <p>
-            Be part of the revolution reshaping brain research and understanding.
-        </p>
-        <Button href="/community/join" customIcon>
-            Join Now
-            <Icon name="ic:baseline-chevron-right" slot="icon" />
-        </Button>
-    </CtaCardSection>
+            <div class="cta-container">
+                <Button href="/demo/interactive-neural-simulator" customIcon>
+                    Try Demo
+                    <Icon name="ic:baseline-play-arrow" slot="icon" />
+                </Button>
+            </div>
+        </TextCardSection>
+    </Container>
 </Layout>
+
+<style>
+    .feature-image {
+        margin: 2rem 0;
+        text-align: center;
+    }
+    .feature-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .cta-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    ul {
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    h2 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+</style>

@@ -8,18 +8,18 @@ export const footerLists = [
     {
         title: 'Core',
         items: [
-            { title: 'Neural Playground', slug: '/features/1' },
-            { title: 'Insight Annotations', slug: '/features/2' },
-            { title: 'Open Data Integration', slug: '/features/3' }
+            { title: 'Interactive Neural Simulator', slug: '/features/1' },
+            { title: 'Gamified Learning', slug: '/features/2' },
+            { title: 'Creator Hub', slug: '/features/3' }
         ]
     },
     {
         title: 'Company',
         items: [
             { title: 'About Us', slug: '/company/about' },
-            { title: 'Features', slug: '/features' },
-            { title: 'Demo', slug: '/demo' },
-            { title: 'Community', slug: '/community' }
+            { title: 'Features', slug: '/coming-soon' },
+            { title: 'Demo', slug: '/coming-soon' },
+            { title: 'Community', slug: '/coming-soon' }
         ]
     },
     {

@@ -2,85 +2,90 @@
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import {
-    AnnouncementBar,
     Button,
+    Container,
     TextCardSection,
-    StickyTextImageSection,
-    CtaCardSection,
 } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
-import TextAndImageHero from '../../components/sections/heros/TextAndImageHero.astro';
 
 const seo = {
-    title: 'Insight Annotations | SCI-NAD',
-    description: 'Uncover deeper insights with advanced contextual annotations for complex neural data.',
+    title: 'Gamified Learning Experience | SCI-NAD',
+    description: 'Explore neuroscience through interactive, rewarding, and visually engaging experiences.',
 };
 ---
 
 <Layout {seo}>
-    <AnnouncementBar
-        text="Discover the Power of Contextual Annotations"
-        href="/features/insight-annotations"
-        slot="announcement-bar"
-    />
-    
-    <TextAndImageHero>
-        <Fragment slot="text-container">
-            <h1 class="text-gradient">Insight Annotations</h1>
-            <p>Unlock neural data's full potential with detailed annotations enhancing understanding and research accuracy.</p>
-        </Fragment>
-        <Fragment slot="btns-container">
-            <Button href="/features/insight-annotations" customIcon>
-                Explore Now
-                <Icon name="ic:baseline-chevron-right" slot="icon" />
-            </Button>
-        </Fragment>
-        <Image
-            slot="image-container"
-            src="/assets/images/features/annotations-detail.webp"
-            alt="Enhanced Annotations Detail"
-            width={600}
-            height={400}
-            loading="eager"
-            decoding="async"
-        />
-    </TextAndImageHero>
+    <Container>
+        <TextCardSection>
+            <h1>Gamified Neuroscience Learning</h1>
+            <p>SCI-NAD revolutionizes neuroscience education by turning complex concepts into engaging, interactive experiences.</p>
+            
+            <div class="feature-image">
+                <Image
+                    src="/ca.gif"
+                    alt="Gamified Neuroscience Learning"
+                    width={600}
+                    height={400}
+                    loading="eager"
+                    decoding="async"
+                />
+            </div>
 
-    <TextCardSection>
-        <h2>Dive Deeper into Data</h2>
-        <p>Navigate complex datasets with our annotation tools, revealing crucial patterns and insights for innovative research.</p>
-        <Button href="/data/insights" outlined>Learn More</Button>
-    </TextCardSection>
+            <h2>Key Features:</h2>
+            <ul>
+                <li><strong>Interactive Challenges:</strong> Solve puzzles and complete tasks to unlock new neural pathways.</li>
+                <li><strong>Visual Feedback:</strong> Gain intuitive understanding through dynamic, colorful visualizations.</li>
+                <li><strong>Reward System:</strong> Earn points, badges, and achievements as you progress in your learning journey.</li>
+                <li><strong>Exploration Encouraged:</strong> Discover new possibilities by experimenting with different neural configurations.</li>
+            </ul>
 
-    <StickyTextImageSection>
-        <Fragment slot="text-container">
-            <h2>Interactive Exploration</h2>
-            <p>
-                Interact with annotated datasets to visualize correlations and causations, enhancing your research experience.
-            </p>
-        </Fragment>
-        <Image
-            slot="image-container"
-            src="/assets/images/features/interactive-annotations.webp"
-            alt="Interactive Annotations Platform"
-            width={500}
-            height={300}
-            loading="eager"
-            decoding="async"
-        />
-    </StickyTextImageSection>
+            <h2>Benefits:</h2>
+            <ul>
+                <li>Enhance retention through active, engaging learning experiences</li>
+                <li>Develop intuition for complex neural processes</li>
+                <li>Stay motivated with constant feedback and rewards</li>
+                <li>Apply theoretical knowledge in practical, interactive scenarios</li>
+            </ul>
 
-    <CtaCardSection
-        background="var(--theme-surface-2)"
-        color="var(--theme-on-surface-2)"
-    >
-        <h2>Join Our Growing Community</h2>
-        <p>
-            Connect with professionals using advanced annotations to push neuroscience research boundaries.
-        </p>
-        <Button href="/community/join" customIcon>
-            Get Involved
-            <Icon name="ic:baseline-chevron-right" slot="icon" />
-        </Button>
-    </CtaCardSection>
+            <p>Whether you're a student, researcher, or enthusiast, SCI-NAD makes learning neuroscience an exciting and rewarding adventure!</p>
+
+            <div class="cta-container">
+                <Button href="/demo/gamified-learning" customIcon>
+                    Try Demo
+                    <Icon name="ic:baseline-play-arrow" slot="icon" />
+                </Button>
+                <Button href="/data/insights" variant="outline" customIcon>
+                    Explore Insights
+                    <Icon name="ic:baseline-lightbulb" slot="icon" />
+                </Button>
+            </div>
+        </TextCardSection>
+    </Container>
 </Layout>
+
+<style>
+    .feature-image {
+        margin: 2rem 0;
+        text-align: center;
+    }
+    .feature-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .cta-container {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        justify-content: center;
+    }
+    ul {
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    h2 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+</style>

@@ -2,103 +2,98 @@
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import {
-    AnnouncementBar,
-    Button,
+    Container,
     TextCardSection,
-    StickyTextImageSection,
-    CtaCardSection,
 } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
-import TextAndImageHero from '../../components/sections/heros/TextAndImageHero.astro';
 
 const seo = {
-    title: 'Insight Annotations | SCI-NAD',
-    description: 'Unlock deeper insights with our advanced contextual annotations for complex neural data.',
+    title: 'Neuroscience Insights | SCI-NAD',
+    description: 'Explore insights from our gamified neuroscience learning platform.',
 };
 
-const benefits = [
-    { icon: 'mdi:clock-fast', text: 'Accelerate research with instant context' },
-    { icon: 'mdi:brain', text: 'Enhance understanding of complex neural patterns' },
-    { icon: 'mdi:account-group', text: 'Facilitate collaboration across disciplines' },
+const metrics = [
+    { icon: 'mdi:brain', label: 'Neural Pathways Explored' },
+    { icon: 'mdi:clock-fast', label: 'Learning Speed Increase' },
+    { icon: 'mdi:account-group', label: 'Active Users' },
+    { icon: 'mdi:chart-line', label: 'Knowledge Retention Rate' },
 ];
 
 ---
 
 <Layout {seo}>
-    <AnnouncementBar
-        text="New feature: Real-time collaborative annotations now available!"
-        href="/features/insight-annotations"
-        slot="announcement-bar"
-    />
-    
-    <TextAndImageHero>
-        <Fragment slot="text-container">
-            <h1 class="text-gradient">Insight Annotations</h1>
-            <p>Our Insight Annotations provide rich, contextual information that empowers researchers to unlock hidden patterns and accelerate breakthroughs in neuroscience.</p>
-        </Fragment>
-        <Fragment slot="btns-container">
-            <Button href="/demo" customIcon>
-                Try Interactive Demo
-                <Icon name="ic:baseline-chevron-right" slot="icon" />
-            </Button>
-        </Fragment>
-        <Image
-            slot="image-container"
-            src="/assets/images/features/insight-annotations-demo.webp"
-            alt="Insight Annotations Demo"
-            width={600}
-            height={400}
-            loading="eager"
-            decoding="async"
-        />
-    </TextAndImageHero>
+    <Container>
+        <TextCardSection>
+            <h1>Neuroscience Learning Insights</h1>
+            <p>Discover the impact of SCI-NAD's gamified learning approach on neuroscience education.</p>
 
-    <TextCardSection>
-        <h2>Revolutionizing Neural Data Analysis</h2>
-        <p>Unlock the full potential of your neural data with our advanced annotation tools.</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {benefits.map(benefit => (
-                <div class="flex items-center space-x-3 bg-surface-2 p-4 rounded-lg">
-                    <Icon name={benefit.icon} class="w-8 h-8 text-primary-500" />
-                    <p class="font-medium">{benefit.text}</p>
-                </div>
-            ))}
-        </div>
-    </TextCardSection>
+            <div class="metrics-grid">
+                {metrics.map(metric => (
+                    <div class="metric-card">
+                        <Icon name={metric.icon} class="w-16 h-16 text-primary-500" />
+                        <h3>{metric.label}</h3>
+                        <div class="blur-box"></div>
+                    </div>
+                ))}
+            </div>
 
-    <StickyTextImageSection>
-        <Fragment slot="text-container">
-            <h2>How It Works</h2>
-            <p>Insight Annotations seamlessly integrate with your existing workflow:</p>
-            <ol class="list-decimal list-inside space-y-2">
-                <li>Upload your neural data</li>
-                <li>Our AI analyzes and generates contextual annotations</li>
-                <li>Explore interactive visualizations with layered insights</li>
-                <li>Collaborate in real-time with your team</li>
-            </ol>
-        </Fragment>
-        <Image
-            slot="image-container"
-            src="/assets/images/features/insight-annotations-workflow.webp"
-            alt="Insight Annotations Workflow"
-            width={500}
-            height={300}
-            loading="eager"
-            decoding="async"
-        />
-    </StickyTextImageSection>
+            <h2>Key Findings</h2>
+            <ul>
+                <li><strong>Engagement:</strong> Users spend significantly more time per session compared to traditional learning methods.</li>
+                <li><strong>Skill Improvement:</strong> The majority of users report improved understanding of complex neural concepts within weeks.</li>
+                <li><strong>Problem-Solving:</strong> Users show a substantial increase in ability to solve complex neuroscience problems after using SCI-NAD.</li>
+                <li><strong>Collaboration:</strong> Inter-disciplinary collaboration among users has notably increased through our platform.</li>
+            </ul>
 
-    <CtaCardSection
-        background="var(--theme-surface-2)"
-        color="var(--theme-on-surface-2)"
-    >
-        <h2>Ready to Enhance Your Research?</h2>
-        <p>
-            Join our community of researchers leveraging advanced annotations to push the boundaries of neuroscience.
-        </p>
-        <Button href="/signup" customIcon>
-            Get Started
-            <Icon name="ic:baseline-chevron-right" slot="icon" />
-        </Button>
-    </CtaCardSection>
+           
+
+            <p>These insights demonstrate the effectiveness of SCI-NAD's gamified approach in enhancing neuroscience education and research capabilities.</p>
+        </TextCardSection>
+    </Container>
 </Layout>
+
+<style>
+    .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+    .metric-card {
+        background-color: var(--theme-surface-1);
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .metric-card:hover {
+        transform: translateY(-5px);
+    }
+    .blur-box {
+        margin-top: 1rem;
+        height: 30px;
+        background-color: var(--theme-primary);
+        filter: blur(10px);
+        opacity: 0.7;
+        border-radius: 15px;
+    }
+    .feature-image {
+        margin: 3rem 0;
+        text-align: center;
+    }
+    .feature-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    ul {
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    h2 {
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+    }
+</style>

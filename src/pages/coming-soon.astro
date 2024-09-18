@@ -1,0 +1,91 @@
+---
+import { Button, Container, TextCardSection } from '@components/odyssey-theme';
+import Layout from '../layouts/Page.astro';
+
+const seo = {
+	title: 'Coming Soon - Exciting Things Ahead!',
+	description: 'Our new website is under construction. Stay tuned for something amazing!',
+};
+---
+
+<Layout {seo}>
+	<Container>
+		<TextCardSection>
+			<h1>Coming Soon</h1>
+			<h2>We're working on something exciting!</h2>
+			<p>Enter your email to be notified when we launch.</p>
+			<div class="email-form__container">
+				<form id="emailForm">
+					<input type="email" id="emailInput" placeholder="Enter your email" required>
+					<Button type="submit">
+						Notify Me
+					</Button>
+				</form>
+				<p id="formMessage"></p>
+			</div>
+		</TextCardSection>
+	</Container>
+</Layout>
+
+<script>
+	document.getElementById('emailForm').addEventListener('submit', async (e) => {
+		e.preventDefault();
+		const email = document.getElementById('emailInput').value;
+		const messageElement = document.getElementById('formMessage');
+
+		try {
+			const response = await fetch('/api/subscribe', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ email }),
+			});
+
+			const responseText = await response.text();
+			console.log('Full response:', responseText);
+
+			if (response.ok) {
+				try {
+					const result = JSON.parse(responseText);
+					messageElement.textContent = result.message;
+					messageElement.style.color = 'green';
+					document.getElementById('emailInput').value = '';
+				} catch (parseError) {
+					throw new Error('Invalid JSON response');
+				}
+			} else {
+				throw new Error('Subscription failed');
+			}
+		} catch (error) {
+			messageElement.textContent = error.message || 'An error occurred. Please try again later.';
+			messageElement.style.color = 'red';
+		}
+	});
+</script>
+
+<style>
+	.email-form__container {
+		margin-top: 2rem;
+	}
+	.email-form__container form {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+	.email-form__container input[type="email"] {
+		flex-grow: 1;
+		min-width: 200px;
+		padding: 0.5rem 1rem;
+		font-size: 1rem;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+	.email-form__container :global(button) {
+		flex-shrink: 0;
+	}
+	#formMessage {
+		margin-top: 1rem;
+		font-weight: bold;
+	}
+</style>

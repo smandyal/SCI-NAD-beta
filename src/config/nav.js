@@ -9,14 +9,14 @@ export const nav = [
 	},
 	{
 		title: 'Features',
-		slug: '/blog',
+		slug: '/coming-soon',
 	},
 	{
 		title: 'Demo',
-		slug: '/demo',
+		slug: '/coming-soon',
 	},
 	{
 		title: 'Community',
-		slug: '/community',
+		slug: '/coming-soon',
 	},
 ];

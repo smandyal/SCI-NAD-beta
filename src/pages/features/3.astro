@@ -2,85 +2,77 @@
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import {
-    AnnouncementBar,
-    Button,
+    Container,
     TextCardSection,
-    StickyTextImageSection,
-    CtaCardSection,
+    Button,
 } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
-import TextAndImageHero from '../../components/sections/heros/TextAndImageHero.astro';
 
 const seo = {
-    title: 'Open Data Integration | SCI-NAD',
-    description: 'Access and leverage a wide array of neurological data for comprehensive research and innovation.',
+    title: 'Creator Hub | SCI-NAD',
+    description: 'Collaborate, share, and access a wide range of neuroscience resources and tools in one central platform.',
 };
 ---
 
 <Layout {seo}>
-    <AnnouncementBar
-        text="Explore Our Extensive Neuroscience Data Repository"
-        href="/features/open-data-integration"
-        slot="announcement-bar"
-    />
-    
-    <TextAndImageHero>
-        <Fragment slot="text-container">
-            <h1 class="text-gradient">Open Data Integration</h1>
-            <p>Seamlessly integrate and explore extensive datasets to enrich your research and applications in neuroscience.</p>
-        </Fragment>
-        <Fragment slot="btns-container">
-            <Button href="/features/open-data-integration" customIcon>
-                Discover More
-                <Icon name="ic:baseline-chevron-right" slot="icon" />
-            </Button>
-        </Fragment>
-        <Image
-            slot="image-container"
-            src="/assets/images/features/open-data-access.webp"
-            alt="Open Data Access"
-            width={600}
-            height={400}
-            loading="eager"
-            decoding="async"
-        />
-    </TextAndImageHero>
+    <Container>
+        <TextCardSection>
+            <h1>Creator Hub</h1>
+            <p>Welcome to the SCI-NAD Creator Hub, your central platform for neuroscience collaboration and resource sharing.</p>
 
-    <TextCardSection>
-        <h2>Data at Your Fingertips</h2>
-        <p>Explore open-source datasets from DANDI, DRYAD, OSF, and more. Leverage FAIR (Findable, Accessible, Interoperable, and Reusable) data like NeuroData Without Borders (NWB) format.</p>
-        <Button href="/data/insights" outlined>Learn More</Button>
-    </TextCardSection>
-   
-    <StickyTextImageSection>
-        <Fragment slot="text-container">
-            <h2>Advanced Data Tools</h2>
-            <p>
-                Utilize powerful tools for data visualization and analysis, transforming complex data into understandable and actionable insights.
-            </p>
-        </Fragment>
-        <Image
-            slot="image-container"
-            src="/assets/images/features/data-visualization-tools.webp"
-            alt="Data Visualization Tools"
-            width={500}
-            height={300}
-            loading="eager"
-            decoding="async"
-        />
-    </StickyTextImageSection>
+            <div class="feature-image">
+                <Image
+                    src="/od.gif"
+                    alt="Creator Hub"
+                    width={600}
+                    height={400}
+                    loading="eager"
+                    decoding="async"
+                />
+            </div>
 
-    <CtaCardSection
-        background="var(--theme-surface-2)"
-        color="var(--theme-on-surface-2)"
-    >
-        <h2>Join Our Data-Driven Neuroscience Community</h2>
-        <p>
-            Enhance your projects and research with access to our comprehensive data repository. Join now to start leveraging the full potential of open data.
-        </p>
-        <Button href="/community/join" customIcon>
-            Get Started
-            <Icon name="ic:baseline-chevron-right" slot="icon" />
-        </Button>
-    </CtaCardSection>
+            <h2>Key Features:</h2>
+            <ul>
+                <li><strong>Collaboration Tools:</strong> Connect with fellow researchers and educators.</li>
+                <li><strong>Resource Library:</strong> Access and share a wide range of neuroscience materials.</li>
+                <li><strong>Project Showcase:</strong> Highlight your work and discover innovative projects.</li>
+                <li><strong>Community Forums:</strong> Engage in discussions and seek advice from peers.</li>
+            </ul>
+
+            <p>Whether you're a seasoned researcher or a curious student, the Creator Hub provides the tools and community to enhance your neuroscience journey.</p>
+
+            <div class="cta-container">
+                <Button href="/demo/creator-hub" customIcon>
+                    Join the Creator Hub
+                    <Icon name="ic:baseline-arrow-forward" slot="icon" />
+                </Button>
+            </div>
+        </TextCardSection>
+    </Container>
 </Layout>
+
+<style>
+    .feature-image {
+        margin: 2rem 0;
+        text-align: center;
+    }
+    .feature-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .cta-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    ul {
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    h2 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+</style>
