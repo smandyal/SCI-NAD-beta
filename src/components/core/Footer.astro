@@ -85,6 +85,7 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
     align-items: center;
     gap: 1.5rem;
     margin-bottom: 1rem;
+    justify-content: flex-start; // Align to the left
   }
 
   .sci-nad-logo {
@@ -200,8 +201,9 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
       gap: 2rem;
     }
     .footer-logo__container {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row; // Keep logos side by side
+      align-items: center;
+      justify-content: flex-start; // Align to the left
       gap: 1rem;
     }
   }
@@ -212,7 +214,7 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
       gap: 1rem;
     }
     .footer-logo__container {
-      align-items: center;
+      justify-content: center; // Center logos on very small screens
     }
     .footer-links__container {
       flex-wrap: wrap;
