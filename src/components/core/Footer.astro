@@ -11,10 +11,15 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
   <Container>
     <div class="footer-grid__container">
       <div class="footer-brand__container">
-        <div class="footer-logo-svg__container">
-          <slot name="logo" />
-          <img src="/n.svg" alt="Nvidia logo" class="footer-svg__icon" width="135" height="45" loading="eager" />
+        <div class="footer-logo__container">
+          <div class="sci-nad-logo">
+            <slot name="logo" />
+          </div>
+          <div class="nvidia-logo">
+            <img src="/n.svg" alt="Nvidia logo" class="footer-svg__icon" width="135" height="45" loading="eager" />
+          </div>
         </div>
+        <p class="footer-tagline">Empowering neuroscience through interactive technology</p>
         <ul class="footer-socials__list" aria-label="Social media links">
           {footerSocials.map((social) => (
             <li class="footer-socials__item">
@@ -25,29 +30,33 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
                 class="footer-socials__link"
                 aria-label={`Open ${social.name} profile`}
               >
-                <Icon name={social.icon} width={24} height={24} />
+                <Icon name={social.icon} width={20} height={20} />
               </a>
             </li>
           ))}
         </ul>
       </div>
-      {footerLists.map((list) => (
-        <div>
-          <h2 class="footer-list__title"><strong>{list.title}</strong></h2>
-          <ul class="footer-link__list" aria-label={list.title}>
-            {list.items.map((item) => (
-              <li>
-                <a href={item.slug} aria-label={item.title}>{item.title}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      <div class="footer-links__container">
+        {footerLists.map((list) => (
+          <div class="footer-links__column">
+            <h2 class="footer-list__title">{list.title}</h2>
+            <ul class="footer-link__list" aria-label={list.title}>
+              {list.items.map((item) => (
+                <li>
+                  <a href={item.slug} aria-label={item.title}>{item.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
     
-    <div class="footer-copyright__container">
+    <div class="footer-bottom">
+      <div class="footer-copyright__container">
+        <p>&copy; {new Date().getFullYear()} <a href="/company/legal" class="copyright-link">{copyrightName}</a>. All rights reserved.</p>
+      </div>
       {showLittleSticksPlug && <LittleSticksPlug />}
-      <p>All Rights Reserved &copy; {new Date().getFullYear()} {copyrightName}</p>
     </div>
   </Container>
 </footer>
@@ -55,79 +64,182 @@ const { footerSocials, footerLists, copyrightName, background, color, showLittle
 <style>
   footer {
     position: relative;
-    --footer-bg: var(--theme-primary);
-    --footer-color: var(--theme-on-primary);
-    min-height: 40vh;
+    --footer-bg: var(--theme-surface-1);
+    --footer-color: var(--theme-on-surface-1);
     background-color: var(--footer-bg);
     color: var(--footer-color);
-    border-top-left-radius: var(--theme-shape-radius);
-    border-top-right-radius: var(--theme-shape-radius);
+    padding: 4rem 0 2rem;
+    font-size: 0.875rem;
   }
   .footer-grid__container {
-    padding: 10vh 0 1rem 0;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    margin-bottom: 2rem;
   }
-  .footer-logo-svg__container {
+  .footer-brand__container {
+    flex: 1;
+  }
+  .footer-logo__container {
     display: flex;
     align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .sci-nad-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sci-nad-logo :global(svg) {
+    width: 45px;
+    height: 45px;
+  }
+
+  .nvidia-logo img {
+    width: auto;
+    height: 45px;
+    object-fit: contain;
+  }
+
+  .logo-wrapper {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-wrapper :global(svg),
+  .logo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .footer-tagline {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    opacity: 0.8;
   }
   .footer-socials__list {
-    margin: 1rem 0;
-    padding: 0;
     display: flex;
+    gap: 1rem;
+    padding: 0;
     list-style: none;
   }
-  .footer-socials__item {
-    margin-right: 0.5rem;
+  .footer-socials__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--theme-surface-1);
+    color: var(--theme-on-surface-1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .footer-socials__link:hover {
+    background-color: var(--theme-on-surface-1);
+    color: var(--theme-surface-1);
+  }
+  .footer-links__container {
+    display: flex;
+    gap: 4rem;
+  }
+  .footer-links__column {
+    min-width: 120px;
+  }
+  .footer-list__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
   }
   .footer-link__list {
-    margin: 0;
     padding: 0;
     list-style: none;
   }
   .footer-link__list li {
     margin-bottom: 0.5rem;
   }
-  .footer-link__list li a {
+  .footer-link__list a {
     text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
   }
-  .footer-link__list li a:hover {
-    opacity: 0.84;
+  .footer-link__list a:hover {
+    opacity: 1;
+  }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--theme-on-surface-1);
   }
   .footer-copyright__container {
-    display: flex;
-    flex-direction: column;
+    opacity: 0.8;
   }
-  .footer-copyright__container p {
-    font-size: var(--font-size-sm);
+  .copyright-link {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
   }
-  .footer-svg__icon {
-    width: 135px;
-    height: 45px;
-  }
-  .footer-list__title {
-    font-size: var(--font-size-base);
-    margin-bottom: 0.5rem;
+  .copyright-link:hover {
+    opacity: 1;
   }
   @media (max-width: 768px) {
-    .footer-grid__container :first-child {
-      grid-column: 1/-1;
-    }
     .footer-grid__container {
-      padding: 5vh 0;
-      grid-template-columns: repeat(2, 1fr);
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .footer-links__container {
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-logo__container {
+      flex-direction: column;
+      align-items: flex-start;
       gap: 1rem;
     }
   }
-  @media (max-width: 600px) {
-    .footer-grid__container {
-      padding: 5vh 0;
-      grid-template-columns: 1fr;
+  @media (max-width: 480px) {
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
       gap: 1rem;
     }
-    .footer-copyright__container {
-      flex-direction: column;
+    .footer-logo__container {
+      align-items: center;
+    }
+    .footer-links__container {
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-links__column {
+      min-width: 120px;
+    }
+    .footer-list__title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .footer-link__list {
+      padding: 0;
+      list-style: none;
+    }
+    .footer-link__list li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-link__list a {
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+    .footer-link__list a:hover {
+      opacity: 1;
     }
   }
 </style>

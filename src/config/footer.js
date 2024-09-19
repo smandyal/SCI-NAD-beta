@@ -6,14 +6,6 @@ export const footerSocials = [
 
 export const footerLists = [
     {
-        title: 'Core',
-        items: [
-            { title: 'Interactive Neural Simulator', slug: '/features/1' },
-            { title: 'Gamified Learning', slug: '/features/2' },
-            { title: 'Creator Hub', slug: '/features/3' }
-        ]
-    },
-    {
         title: 'Company',
         items: [
             { title: 'About Us', slug: '/company/about' },
