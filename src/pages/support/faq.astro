@@ -76,6 +76,8 @@ const faqs = [
     }
     details p {
         margin-top: 1rem;
+        font-size: var(--font-size-md);  /* Use your site's default font size variable */
+        line-height: 1.5;
     }
     h1, h2 {
         font-size: var(--font-size-xl);
@@ -88,8 +90,8 @@ const faqs = [
 </style>
 
 <!-- Additional FAQ Content -->
-<section>
-    <h2>Additional Frequently Asked Questions</h2>
+<section class="additional-faq">
+    <h4>Additional Frequently Asked Questions</h4>
     <details>
         <summary>What is SCI-NAD?</summary>
         <p>SCI-NAD (Synaptic Computational Interface for NeuroAdvancement Design) is an innovative platform that democratizes access to neurotechnology. It offers an interactive 3D brain mapping tool combined with real-time neural simulations, making neurotech accessible and engaging for everyone—from experts to enthusiasts.</p>
@@ -282,3 +284,42 @@ const faqs = [
         <p>- <strong>Seamless Integration:</strong> Updates are rolled out with minimal disruption to user experience.</p>
     </details>
 </section>
+
+<style>
+    .additional-faq {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-top: 2rem;
+    }
+
+    .additional-faq h4 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .additional-faq details {
+        margin-bottom: 0.5rem;
+    }
+
+    .additional-faq summary {
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .additional-faq p, 
+    .additional-faq ul, 
+    .additional-faq ol {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-top: 0.5rem;
+    }
+
+    .additional-faq ul, 
+    .additional-faq ol {
+        padding-left: 1.5rem;
+    }
+
+    .additional-faq li {
+        margin-bottom: 0.25rem;
+    }
+</style>
