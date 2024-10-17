@@ -23,8 +23,8 @@ const selectOptions = [
 7. Form data is sent to a serverless function that inserts it into a Vercel Postgres database. -->
 
 <form name="Contact Form" method="POST" action="/api/submit-form">
-  <FormInput type="text" label="Name" name="Name" placeholder="Elon Musk" required />
-  <FormInput type="email" label="Email" name="Email" placeholder="musk@neuralink.com" required />
+  <FormInput type="text" label="Name" name="Name" placeholder="First and Last Name" required />
+  <FormInput type="email" label="Email" name="Email" placeholder="name@example.com" required />
   <FormSelect label="How Did You Hear About Us?" name="HowDidYouHearAboutUs" options={selectOptions} required />
   <FormTextarea label="Message" name="Message" placeholder="Your message here..." required />
   <Button type="submit">Submit</Button>
