@@ -13,7 +13,7 @@ export const nav = [
 	},
 	{
 		title: 'Demo',
-		slug: '/coming-soon',
+		slug: '/demo',
 	},
 	{
 		title: 'Community',
